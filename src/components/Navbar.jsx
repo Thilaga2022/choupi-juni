@@ -82,40 +82,11 @@ function Navbar() {
 
                 </div>
 
-                {/* Mobile navigation */}
-                {/* {isMenuOpen && (
-                    <div className="mt-4 rounded-2xl border border-[#8e8484] bg-white p-3 shadow-sm md:hidden">
-
-                        {navLinks.map((link) => (
-                            <NavLink
-                                key={link.path}
-                                to={link.path}
-                                onClick={() => setIsMenuOpen(false)}
-                                className={({ isActive }) =>
-                                    isActive
-                                        ? "block rounded-xl bg-[#afa3a316] px-4 py-3 font-semibold text-[#676363]"
-                                        : "block rounded-xl px-4 py-3 font-medium text-[#a09b9b] "
-                                }
-                            >
-                                {link.name}
-                            </NavLink>
-                        ))}
-
-                        <a
-                            href="https://wa.me/8056790484"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-2 block rounded-xl bg-[#8e8484] px-4 py-3 text-center font-semibold text-white shadow-sm "
-                        >
-                            Order on WhatsApp
-                        </a>
-
-                    </div>
-                )} */}
+                
 
                 {/* Mobile navigation */}
                 <div
-                    className={`fixed right-0 top-18.25 z-40 w-[80%] max-w-sm md:hidden rounded-l-2xl border border-[#8e8484] bg-white p-3 shadow-lg transition-transform duration-500 ease-in-out ${isMenuOpen
+                    className={`fixed right-0 top-18.25 z-40 w-[85vw] max-w-[320px] md:hidden rounded-l-2xl border border-[#8e8484] bg-white p-3 shadow-lg transition-transform duration-500 ease-in-out ${isMenuOpen
                         ? "translate-x-0"
                         : "translate-x-full"
                         }`}
