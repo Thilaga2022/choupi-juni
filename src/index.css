@@ -5,8 +5,32 @@
   color: #2d2340;
 } */
 
+
+
+@font-face {
+  font-family: "Baloo 2";
+  src: url("./assets/fonts/Baloo2-Variable.ttf") format("truetype");
+  font-weight: 400 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("./assets/fonts/NunitoSans-Variable.ttf") format("truetype");
+  font-weight: 200 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-heading: "Baloo 2", sans-serif;
+  --font-body: "Nunito Sans", sans-serif;
+}
+
 body {
   margin: 0;
+  font-family: "Nunito Sans", sans-serif;
   background-color: #fff9f0;
   color: #293241;
 }

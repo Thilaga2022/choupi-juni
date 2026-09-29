@@ -1,18 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Products from "./pages/Products";
+import ProductDetails from "./pages/ProductDetails";
 import About from "./pages/About"
 import Contact from "./pages/Contact"
+import Products from "./pages/Products"
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import AnnouncementBar from "./components/AnouncementBar";
 
 
 
 function App() {
   return (
     <BrowserRouter basename="/choupi-juni">
+       <AnnouncementBar />
       <Navbar />
-
 
       <Routes>
 
@@ -23,6 +25,10 @@ function App() {
           element={<Products />}
         />
 
+        <Route
+          path="/products/:productId"
+          element={<ProductDetails />}
+        />
 
         <Route
           path="/about"
