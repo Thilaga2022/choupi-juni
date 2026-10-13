@@ -188,7 +188,10 @@ function ProductDetails() {
                       <button
                         key={style.id}
                         type="button"
-                        onClick={() => setSelectedStyle(style)}
+                        onClick={() => {
+                          setSelectedStyle(style);
+                          setSelectedFeature(null);
+                        }}
                         aria-label={`${style.name}${isOutOfStock ? " - Out of stock" : ""}`}
                         aria-pressed={isSelected}
                         className={`relative shrink-0 overflow-hidden rounded-xl border-2 bg-white p-1 transition-all duration-200 ${isSelected
@@ -273,68 +276,67 @@ Discount: ${discountPercentage}%`
         </div>
       </section>
 
-      
-{/* Key Attributes Section */}
-<section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-  <h2 className="mb-6 text-2xl font-bold text-[#293241] sm:mb-8 sm:text-3xl">
-    Key Attributes
-  </h2>
 
-  <div className="space-y-8 sm:space-y-10">
-    {[
-      {
-        id: "description-1",
-        image: desc1,
-        title: "Keeps Drinks Warm or Cool",
-        description: "Designed with a multi-layer construction that helps retain heat or cold for longer, keeping your drink at a more comfortable temperature throughout the day.",
-      },
-      {
-        id: "description-2",
-        image: desc2,
-        title: "Two-way Drinking Design",
-        description: "Enjoy versatile drinking with two convenient options: use the built-in sipper for easy sipping or open the lid for direct drinking through the wide opening..",
-      },
-      {
-        id: "description-3",
-        image: desc3,
-        title: "Thoughtful Details",
-        description: "Thoughtfully designed to fit comfortably in compatible car cup holders, making it convenient to keep your drink within easy reach during road trips and daily commutes.",
-      },
-      {
-        id: "description-4",
-        image: desc4,
-        title: "Multi-Purpose Inner Lid",
-        description: "Designed for added convenience, the inner lid doubles as a small cup, making it easy to pour and enjoy tea or other beverages on the go.",
-      },
-    ].map((item, index) => (
-      <div
-        key={item.id}
-        className={`flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8 ${
-          index !== 0 ? "border-t border-[#D9ECFA] pt-8 sm:pt-10" : ""
-        }`}
-      >
-        <div className="overflow-hidden rounded-3xl border border-[#D9ECFA] bg-[#EAF5FF] p-3 shadow-sm sm:p-4">
-          <img
-            src={item.image}
-            alt={item.title}
-            loading="lazy"
-            className="rounded h-auto max-h-80 w-full object-contain sm:h-56 md:h-60"
-          />
+      {/* Key Attributes Section */}
+      <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+        <h2 className="mb-6 text-2xl font-bold text-[#293241] sm:mb-8 sm:text-3xl">
+          Key Attributes
+        </h2>
+
+        <div className="space-y-8 sm:space-y-10">
+          {[
+            {
+              id: "description-1",
+              image: desc1,
+              title: "Keeps Drinks Warm or Cool",
+              description: "Designed with a multi-layer construction that helps retain heat or cold for longer, keeping your drink at a more comfortable temperature throughout the day.",
+            },
+            {
+              id: "description-2",
+              image: desc2,
+              title: "Two-way Drinking Design",
+              description: "Enjoy versatile drinking with two convenient options: use the built-in sipper for easy sipping or open the lid for direct drinking through the wide opening..",
+            },
+            {
+              id: "description-3",
+              image: desc3,
+              title: "Thoughtful Details",
+              description: "Thoughtfully designed to fit comfortably in compatible car cup holders, making it convenient to keep your drink within easy reach during road trips and daily commutes.",
+            },
+            {
+              id: "description-4",
+              image: desc4,
+              title: "Multi-Purpose Inner Lid",
+              description: "Designed for added convenience, the inner lid doubles as a small cup, making it easy to pour and enjoy tea or other beverages on the go.",
+            },
+          ].map((item, index) => (
+            <div
+              key={item.id}
+              className={`flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8 ${index !== 0 ? "border-t border-[#D9ECFA] pt-8 sm:pt-10" : ""
+                }`}
+            >
+              <div className="overflow-hidden rounded-3xl border border-[#D9ECFA] bg-[#EAF5FF] p-3 shadow-sm sm:p-4">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  className="rounded h-auto max-h-80 w-full object-contain sm:h-56 md:h-60"
+                />
+              </div>
+
+              <div className="flex-1 py-1">
+                <h3 className="text-lg font-semibold text-[#293241] sm:text-xl">
+                  {item.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-[#293241]/75 sm:text-base">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
-
-        <div className="flex-1 py-1">
-          <h3 className="text-lg font-semibold text-[#293241] sm:text-xl">
-            {item.title}
-          </h3>
-
-          <p className="mt-3 text-sm leading-7 text-[#293241]/75 sm:text-base">
-            {item.description}
-          </p>
-        </div>
-      </div>
-    ))}
-  </div>
-</section>
+      </section>
 
 
 
