@@ -64,13 +64,15 @@ function Footer() {
                         </p>
 
                         <a
-                            href="https://wa.me/919566761489?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20products.%20Could%20you%20please%20help%20me%3F"
+                            href="https://wa.me/919597996585?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20products.%20Could%20you%20please%20help%20me%3F"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="mt-4 inline-block rounded-full bg-green-500 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-green-600"
                         >
                             WhatsApp Us
                         </a>
+
+                        
                     </div>
 
                 </div>

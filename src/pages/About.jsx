@@ -1,27 +1,27 @@
 import { Link } from "react-router-dom";
-
+import { Sparkles, Heart, Gift, Users, } from "lucide-react";
 function About() {
     const values = [
         {
-            number: "01",
+            icon: Sparkles,
             title: "Thoughtfully Chosen",
             description:
                 "Every product is carefully selected with attention to quality, usefulness and everyday appeal.",
         },
         {
-            number: "02",
+            icon: Heart,
             title: "Quality Matters",
             description:
                 "From selection to packing, we pay attention to the details that make every order feel special.",
         },
         {
-            number: "03",
+            icon: Gift,
             title: "Made With Care",
             description:
                 "Behind every order is a team that takes pride in doing things thoughtfully and with care.",
         },
         {
-            number: "04",
+            icon: Users,
             title: "Growing Together",
             description:
                 "We believe a strong business is built by creating opportunities, supporting one another and growing together.",
@@ -48,6 +48,25 @@ function About() {
                     <p className="mt-8 max-w-2xl text-lg leading-8 text-[#293241]/70">
                         Behind every product is a story of care, thoughtful
                         choices and people who believe in doing things well.
+                    </p>
+                </div>
+            </section>
+
+            {/* Meet The Founders */}
+            <section className="mx-4 py-20 sm:py-24 bg-[#EAF5FF] rounded-3xl p-5 sm:p-10">
+                <div className="mx-auto max-w-4xl text-center rounded-3xl bg-white p-5 sm:p-10">
+                    <p className="text-sm font-bold uppercase tracking-widest text-[#2878B8]">
+                        Meet The Founders
+                    </p>
+
+                    <h2 className="mt-4 text-3xl font-bold text-[#293241] sm:text-4xl">
+                        Built with purpose, together.
+                    </h2>
+
+                    <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#293241]/70">
+                        Founded by <span className="font-semibold text-[#293241]"><a href="https://www.instagram.com/anoop.ample?dlrf=MWM1aWJqNnU0cDR0bQ%3D%3D" target="_blank">Anoop Jose</a> & <a href="https://www.instagram.com/anukrish1212?cplk=M2NoNnN1ZHgxY2d2&utm_source=qr" target="_blank">Krishnaveni Anoop</a></span>,
+                        the brand is built on a shared vision of bringing thoughtfully
+                        chosen products and a meaningful shopping experience to every customer.
                     </p>
                 </div>
             </section>
@@ -157,24 +176,28 @@ function About() {
                     </div>
 
                     <div className="mt-14 divide-y divide-[#D9ECFA] border-y border-[#D9ECFA]">
-                        {values.map((value) => (
-                            <div
-                                key={value.number}
-                                className="grid gap-4 py-8 sm:grid-cols-[80px_1fr_1.5fr] sm:items-start sm:gap-8"
-                            >
-                                <span className="text-sm font-bold text-[#6CB4EE]">
-                                    {value.number}
-                                </span>
+                        {values.map((value) => {
+                            const Icon = value.icon;
 
-                                <h3 className="text-xl font-bold text-[#293241]">
-                                    {value.title}
-                                </h3>
+                            return (
+                                <div
+                                    key={value.title}
+                                    className="grid gap-4 py-8 sm:grid-cols-[80px_1fr_1.5fr] sm:items-start sm:gap-8"
+                                >
+                                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#EAF5FF] text-[#2878B8]">
+                                        <Icon size={22} strokeWidth={1.8} />
+                                    </div>
 
-                                <p className="max-w-xl leading-7 text-[#293241]/70">
-                                    {value.description}
-                                </p>
-                            </div>
-                        ))}
+                                    <h3 className="inline text-xl font-bold text-[#293241]">
+                                        {value.title}
+                                    </h3>
+
+                                    <p className="max-w-xl leading-7 text-[#293241]/70">
+                                        {value.description}
+                                    </p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>

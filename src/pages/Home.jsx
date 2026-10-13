@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import heroOne from "../assets/hero-1.png"
-import heroTwo from "../assets/hero-2.png"
-import heroThree from "../assets/hero-3.png"
+import slide1 from "../assets/carousel-1.png"
+import slide2 from "../assets/carousel-2.jpeg"
+import slide3 from "../assets/carousel-3.jpeg"
 import bottles from "../data/bottles";
 import ProductCard from "../components/ProductCard";
 const claims = [
@@ -27,26 +27,29 @@ const claims = [
 
 const heroSlides = [
   {
-    image: heroOne,
+    image: slide1,
     eyebrow: "Made for little adventures",
     title: "Little things made for little hands",
     description:
       "Cute, practical water bottles designed for kindergarten kids.",
   },
   {
-    image: heroTwo,
+    image: slide2,
     eyebrow: "Fun meets functionality",
     title: "Make every day a little more playful",
     description:
       "Fun and practical bottles designed to make everyday adventures special.",
   },
   {
-    image: heroThree,
+    image: slide3,
     eyebrow: "Made for happy moments",
     title: "Products kids love to carry",
     description:
       "Thoughtfully designed products made for little ones and their everyday adventures.",
   },
+ 
+  
+
 ];
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -83,7 +86,7 @@ function Home() {
 
       {/* Hero Carousel */}
       <section className="bg-[#FFF9F0] px-4 py-2 sm:px-6">
-        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-3xl bg-white p-4 shadow-md ">
+        <div className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl bg-white p-2 shadow-md ">
 
           {/* Carousel Track */}
           <div
@@ -92,19 +95,22 @@ function Home() {
               transform: `translateX(-${currentSlide * 100}%)`,
             }}
           >
+
             {heroSlides.map((slide) => (
-              <div
+              <Link
                 key={slide.title}
-                className="min-w-full"
+                to="/products"
+                className="relative min-w-full cursor-pointer"
+                aria-label={`View ${slide.title} products`}
               >
-                <div className=" overflow-hidden rounded-2xl  ">
+                <div className="overflow-hidden rounded-2xl">
                   <img
                     src={slide.image}
                     alt={slide.title}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-fill"
                   />
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -252,7 +258,7 @@ function Home() {
           </p>
 
           <a
-            href={`https://wa.me/919566761489?text=${encodeURIComponent("Hi! I’d like to place an order. Could you please help me with the ordering process?")}`}
+            href={`https://wa.me/919597996585?text=${encodeURIComponent("Hi! I’d like to place an order. Could you please help me with the ordering process?")}`}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-8 inline-block rounded-full bg-[#bdb2b0] px-5 py-2.5  text-[white] shadow-sm transition-[background-color,color,box-shadow,translate] duration-800 ease-in-out hover:-translate-y-0.5 hover:bg-[#1B9A58] hover:shadow-md"

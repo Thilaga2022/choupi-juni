@@ -61,7 +61,7 @@ function Navbar() {
                         ))}
 
                         <a
-                            href={`https://wa.me/919566761489?text=${encodeURIComponent("Hi! I’d like to place an order. Could you please help me with the ordering process?"
+                            href={`https://wa.me/919597996585?text=${encodeURIComponent("Hi! I’d like to place an order. Could you please help me with the ordering process?"
                             )}`}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -107,7 +107,7 @@ function Navbar() {
                     ))}
 
                     <a
-                        href={`https://wa.me/919566761489?text=${encodeURIComponent("Hi! I’d like to place an order. Could you please help me with the ordering process?")}`}
+                        href={`https://wa.me/919597996585?text=${encodeURIComponent("Hi! I’d like to place an order. Could you please help me with the ordering process?")}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mt-2 block rounded-xl bg-[#8e8484] px-4 py-3 text-center font-semibold text-white shadow-sm"

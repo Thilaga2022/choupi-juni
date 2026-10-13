@@ -19,13 +19,16 @@ function InstagramIcon() {
 
 function Contact() {
   const contactOptions = [
+
     {
       icon: Mail,
       title: "Email",
-      description: "Feel free to drop an email for general questions and enquiries.",
-      action: "your@email.com",
-      href: "mailto:your@email.com",
+      description:
+        "Feel free to drop us an email for general questions and enquiries.",
+      action: "info@choupijuni.com",
+      href: "mailto:info@choupijuni.com",
     },
+
 
     {
       icon: InstagramIcon,
@@ -33,7 +36,7 @@ function Contact() {
       description:
         "Follow along for products, updates and inspiration.",
       action: "Visit our Instagram",
-      href: "https://instagram.com/YOUR_PAGE",
+      href: "https://www.instagram.com/choupijuni/",
     },
     {
       icon: FacebookIcon,
@@ -41,7 +44,7 @@ function Contact() {
       description:
         "Follow us for updates, new products and more.",
       action: "Visit our Facebook",
-      href: "https://facebook.com/YOUR_PAGE",
+      href: "https://www.facebook.com/profile.php?id=61595210840827&rdid=dtP27p2EgYRf7PMh&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Fn2yH7idp%2F#",
     },
   ];
 
@@ -94,14 +97,21 @@ function Contact() {
                   </p>
 
                   {/* Action */}
+
+                  {/* Action */}
                   <a
                     href={option.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={option.title === "Email" ? undefined : "_blank"}
+                    rel={
+                      option.title === "Email"
+                        ? undefined
+                        : "noopener noreferrer"
+                    }
                     className="mt-6 inline-block font-semibold text-[#2878B8] transition-colors duration-300 hover:text-[#6CB4EE]"
                   >
                     {option.action}
                   </a>
+
                 </div>
               );
             })}
@@ -126,7 +136,7 @@ function Contact() {
           </p>
 
           <a
-            href="https://wa.me/YOUR_PHONE_NUMBER"
+            href="https://wa.me/919597996585"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-8 inline-flex rounded-full bg-[#bdb2b0] px-7 py-3 font-bold text-[#293241] shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-[#1B9A58] hover:shadow-lg"
