@@ -208,7 +208,7 @@ function ProductDetails() {
 
                         {isOutOfStock && (
                           <span className="absolute inset-x-0 bottom-1 rounded-b-lg bg-[#293241]/85 px-1 py-1 text-center text-[8px] font-bold text-white">
-                            SOLD OUT
+                            OUT OF STOCK
                           </span>
                         )}
                       </button>
