@@ -12,7 +12,7 @@ import AnnouncementBar from "./components/AnouncementBar";
 
 function App() {
   return (
-    <BrowserRouter basename="/choupi-juni">
+    <BrowserRouter>
        <AnnouncementBar />
       <Navbar />
 
