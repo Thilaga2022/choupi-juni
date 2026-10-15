@@ -27,3 +27,9 @@ body {
   background-color: #fff9f0;
   color: #293241;
 }
+
+@media (max-width: 767px) {
+  nav {
+    overflow-x: clip;
+  }
+} 
