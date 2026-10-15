@@ -153,6 +153,36 @@ function Home() {
         </div>
       </section>
 
+      {/*Featured Products */}
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-6xl">
+
+          <div className="text-center text-[#a09b9b]/70">
+            <p className="text-sm font-medium">
+              Our Collection
+            </p>
+
+            <h2 className="text-3xl font-bold text-[#676363] sm:text-4xl">
+              Featured Products
+            </h2>
+
+            <p className="mx-auto mt-4 max-w-2xl text-[#a09b9b]/70">
+              Discover our cute and practical bottles made for little ones.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+              />
+            ))}
+          </div>
+
+        </div>
+      </section>
+
       {/* Why ChoupiJuni? */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
@@ -187,36 +217,6 @@ function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/*Featured Products */}
-      <section className="px-6 py-16">
-        <div className="mx-auto max-w-6xl">
-
-          <div className="text-center text-[#a09b9b]/70">
-            <p className="text-sm font-medium">
-              Our Collection
-            </p>
-
-            <h2 className="text-3xl font-bold text-[#676363] sm:text-4xl">
-              Featured Products
-            </h2>
-
-            <p className="mx-auto mt-4 max-w-2xl text-[#a09b9b]/70">
-              Discover our cute and practical bottles made for little ones.
-            </p>
-          </div>
-
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-              />
-            ))}
-          </div>
-
         </div>
       </section>
 
