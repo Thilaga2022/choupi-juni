@@ -69,10 +69,10 @@ export default function About() {
             <img
               src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=1000&q=85"
               alt="A tender childhood moment"
-              className="relative z-10 h-[320px] w-full rounded-t-[45%] rounded-b-2xl object-cover shadow-xl sm:h-[440px]"
+              className="relative z-10 h-320px w-full rounded-t-[45%] rounded-b-2xl object-cover shadow-xl sm:h-[440px]"
             />
 
-            <div className="absolute -bottom-5 -left-3 z-20 max-w-[230px] rounded-2xl bg-[#fffaf3] p-5 shadow-lg sm:-left-8">
+            <div className="absolute -bottom-5 -left-3 z-20 max-w-230px rounded-2xl bg-[#fffaf3] p-5 shadow-lg sm:-left-8">
               <Heart className="mb-2 text-rose-400" size={23} />
               <p className="font-serif text-lg italic">
                 Little moments. Endless love.
@@ -91,7 +91,7 @@ export default function About() {
             <img
               src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1000&q=85"
               alt="A parent sharing a special moment with a child"
-              className="relative h-[300px] w-full rounded-3xl object-cover shadow-lg sm:h-[410px]"
+              className="relative h-300px w-full rounded-3xl object-cover shadow-lg sm:h-410px"
             />
 
             <div className="absolute -right-3 -top-5 rounded-full bg-white p-4 shadow-md sm:-right-5 sm:p-5">

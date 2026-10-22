@@ -59,6 +59,19 @@ function ProductDetails() {
 
   const [selectedFeature, setSelectedFeature] = useState(null);
 
+  const changeStyle = (direction) => {
+    const styles = product.styles;
+    const currentIndex = styles.findIndex(
+      (style) => style.id === selectedStyle.id
+    );
+
+    const nextIndex =
+      (currentIndex + direction + styles.length) % styles.length;
+
+    setSelectedStyle(styles[nextIndex]);
+    setSelectedFeature(null);
+  };
+
   // Product not found
   if (!product) {
     return (
@@ -84,6 +97,8 @@ function ProductDetails() {
       </main>
     );
   }
+
+
 
   // Calculate discount
   const discountPercentage = Math.round(
@@ -131,6 +146,36 @@ function ProductDetails() {
 
 
                 </div>
+
+
+                {/* Additional Style Navigation */}
+                <div className="mt-4 flex items-center justify-center gap-5">
+                  <button
+                    type="button"
+                    onClick={() => changeStyle(-1)}
+                    aria-label="Previous style"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D9ECFA] text-xl text-[#2878B8] transition hover:bg-[#EAF5FF]"
+                  >
+                    &#8249;
+                  </button>
+
+                  <span className="min-w-12 text-center text-sm font-semibold text-[#293241]">
+                    {product.styles.findIndex(
+                      (style) => style.id === selectedStyle.id
+                    ) + 1}{" "}
+                    / {product.styles.length}
+                  </span>
+
+                  <button
+                    type="button"
+                    onClick={() => changeStyle(1)}
+                    aria-label="Next style"
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D9ECFA] text-xl text-[#2878B8] transition hover:bg-[#EAF5FF]"
+                  >
+                    &#8250;
+                  </button>
+                </div>
+
               </div>
 
 
