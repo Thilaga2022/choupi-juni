@@ -2,7 +2,7 @@
 import { Helmet } from "react-helmet-async";
 
 const SITE_NAME = "ChoupiJuni";
-const SITE_URL = "https://choupijuni.com";
+const SITE_URL = "https://www.choupijuni.com";
 
 function SEO({
   title,

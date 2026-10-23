@@ -69,7 +69,7 @@ export default function About() {
             <img
               src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=1000&q=85"
               alt="A tender childhood moment"
-              className="relative z-10 h-320px w-full rounded-t-[45%] rounded-b-2xl object-cover shadow-xl sm:h-[440px]"
+              className="relative z-10 h-320px w-full rounded-t-[45%] rounded-b-2xl object-cover shadow-xl sm:h-110"
             />
 
             <div className="absolute -bottom-5 -left-3 z-20 max-w-230px rounded-2xl bg-[#fffaf3] p-5 shadow-lg sm:-left-8">
@@ -179,7 +179,7 @@ export default function About() {
 
       {/* FINAL CALL TO ACTION */}
       <section className="px-5 pb-20 sm:px-8 sm:pb-28 lg:px-12">
-        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-[#fff4ee] px-6 py-14 sm:px-12 sm:py-20">
+        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-4xl bg-[#fff4ee] px-6 py-14 sm:px-12 sm:py-20">
           <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-rose-100/70" />
           <div className="absolute -bottom-20 -left-12 h-52 w-52 rounded-full bg-amber-100/70" />
 
