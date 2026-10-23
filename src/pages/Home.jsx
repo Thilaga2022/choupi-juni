@@ -1,28 +1,26 @@
+
 import SEO from "../components/SEO";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import slide1 from "../assets/carousel-1.png"
-import slide2 from "../assets/carousel-2.jpeg"
-import slide3 from "../assets/carousel-3.jpeg"
+import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
+import slide1 from "../assets/carousel-1.png";
+import slide2 from "../assets/carousel-2.jpeg";
+import slide3 from "../assets/carousel-3.jpeg";
 import bottles from "../data/bottles";
 import ProductCard from "../components/ProductCard";
+
 const claims = [
   {
     title: "100% Safe",
     description: "Non-toxic & BPA Free",
-    color: "#C0E09C"
   },
   {
     title: "Premium Quality",
     description: "Durable & Long Lasting",
-    color: "#FEBC5A"
   },
-
   {
     title: "Fast Delivery",
     description: "Pan India Shipping",
-    color: "#F696CD"
   },
 ];
 
@@ -48,10 +46,8 @@ const heroSlides = [
     description:
       "Thoughtfully designed products made for little ones and their everyday adventures.",
   },
-
-
-
 ];
+
 function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -82,28 +78,25 @@ function Home() {
       prev === 0 ? heroSlides.length - 1 : prev - 1
     );
   };
-  return (
 
+  return (
     <>
       <SEO
         title="Thoughtful Products for Everyday Life"
         description="Discover ChoupiJuni's thoughtfully selected products designed to bring convenience and joy to everyday life."
         path="/"
       />
-      <main>
 
-        {/* Hero Carousel */}
-        <section className="bg-[#FFF9F0] px-4 py-2 sm:px-6">
-          <div className="relative mx-auto max-w-4xl overflow-hidden rounded-3xl bg-white p-2 shadow-md ">
-
-            {/* Carousel Track */}
+      <main className="overflow-hidden bg-white text-stone-800">
+        {/* Hero Carousel - Original images and behaviour preserved */}
+        <section className="bg-[#FFFAF6] px-4 py-5 sm:px-6 sm:py-8">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-4xl border border-rose-100/60 bg-white p-2 shadow-[0_12px_40px_rgba(120,90,70,0.08)] sm:p-3">
             <div
               className="flex gap-2 transition-transform duration-700 ease-in-out"
               style={{
                 transform: `translateX(-${currentSlide * 100}%)`,
               }}
             >
-
               {heroSlides.map((slide) => (
                 <Link
                   key={slide.title}
@@ -122,60 +115,60 @@ function Home() {
               ))}
             </div>
 
-            {/* Previous Button */}
             <button
               type="button"
               onClick={previousSlide}
               aria-label="Previous slide"
-              className="absolute left-6 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-2 text-[#293241] shadow-md transition-all duration-300 hover:scale-105 hover:bg-white sm:left-8"
+              className="absolute left-5 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-2.5 text-stone-700 shadow-md transition hover:scale-105 hover:bg-white sm:left-8"
             >
               <ChevronLeft size={22} />
             </button>
 
-            {/* Next Button */}
             <button
               type="button"
               onClick={nextSlide}
               aria-label="Next slide"
-              className="absolute right-6 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-2 text-[#293241] shadow-md transition-all duration-300 hover:scale-105 hover:bg-white sm:right-8"
+              className="absolute right-5 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-2.5 text-stone-700 shadow-md transition hover:scale-105 hover:bg-white sm:right-8"
             >
               <ChevronRight size={22} />
             </button>
 
-            {/* Indicators */}
-            <div className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+            <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 gap-2 sm:bottom-7">
               {heroSlides.map((_, index) => (
                 <button
                   key={index}
                   type="button"
                   onClick={() => setCurrentSlide(index)}
                   aria-label={`Go to slide ${index + 1}`}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${currentSlide === index
-                    ? "w-7 bg-[#BDB2B0]"
-                    : "w-2.5 bg-white/80 hover:bg-white"
-                    }`}
+                  aria-current={currentSlide === index ? "true" : undefined}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    currentSlide === index
+                      ? "w-7 bg-rose-400"
+                      : "w-2.5 bg-white/85 hover:bg-white"
+                  }`}
                 />
               ))}
             </div>
-
           </div>
         </section>
 
-        {/*Featured Products */}
-        <section className="px-6 py-16">
+        {/* Featured Products - ProductCard and product data unchanged */}
+        <section className="px-5 py-16 sm:px-8 sm:py-20 lg:px-12">
           <div className="mx-auto max-w-6xl">
-
-            <div className="text-center text-[#a09b9b]/70">
-              <p className="text-sm font-medium">
+            <div className="text-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-rose-400">
                 Our Collection
               </p>
 
-              <h2 className="text-3xl font-bold text-[#676363] sm:text-4xl">
+              <h2 className="mt-3 font-serif text-4xl sm:text-5xl">
                 Featured Products
               </h2>
 
-              <p className="mx-auto mt-4 max-w-2xl text-[#a09b9b]/70">
-                Discover our cute and practical bottles made for little ones.
+              <div className="mx-auto my-5 h-px w-16 bg-amber-300" />
+
+              <p className="mx-auto max-w-2xl leading-8 text-stone-600">
+                Discover ChoupiJuni's cute and practical bottles
+                made for little ones.
               </p>
             </div>
 
@@ -188,91 +181,120 @@ function Home() {
               ))}
             </div>
 
+            <div className="mt-10 text-center">
+              <Link
+                to="/products"
+                className="inline-flex items-center gap-2 rounded-full border border-rose-200 px-7 py-3 text-sm font-semibold text-rose-500 transition hover:bg-[#FFF4EE]"
+              >
+                Explore All Products
+                <ArrowRight size={17} />
+              </Link>
+            </div>
           </div>
         </section>
 
-        {/* Why ChoupiJuni? */}
-        <section className="px-6 py-16">
+        {/* Why ChoupiJuni */}
+        <section className="bg-[#FFFAF6] px-5 py-16 sm:px-8 sm:py-20 lg:px-12">
           <div className="mx-auto max-w-6xl">
             <div className="text-center">
-              <p className="text-sm text-[#a09b9b]/70 font-medium">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-rose-400">
                 Why ChoupiJuni?
               </p>
 
-              <h2 className="text-[#676363] mt-2 text-3xl font-bold">
-                Made with little ones in mind
+              <h2 className="mt-3 font-serif text-4xl sm:text-5xl">
+                Made with Little Ones in Mind
               </h2>
 
-              <p className="text-[#a09b9b]/70 mx-auto mt-4 max-w-xl">
+              <p className="mx-auto mt-4 max-w-xl leading-8 text-stone-600">
                 Simple, cheerful and practical products for everyday adventures.
               </p>
             </div>
-            {/* Claims Section */}
+
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {claims.map((claim) => (
-                <div
+                <article
                   key={claim.title}
-                  style={{ borderColor: claim.color }}
-                  className="rounded-3xl border border-[#D9ECFA] bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                  className="rounded-3xl border border-rose-100/80 bg-white p-8 text-center shadow-[0_12px_40px_rgba(120,90,70,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-lg"
                 >
-                  <h3 className="text-lg font-bold text-[#676363]">
+                  <div className="mx-auto mb-5 h-1 w-12 rounded-full bg-amber-300" />
+
+                  <h3 className="font-serif text-2xl">
                     {claim.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-6 text-[#a09b9b]">
+                  <p className="mt-3 text-sm leading-7 text-stone-600">
                     {claim.description}
                   </p>
-                </div>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Small Brand Story Section */}
-        <section className=" px-6 py-20">
-          <div className="mx-auto max-w-5xl rounded-3xl bg-[#67636334] px-6 py-12 text-center shadow-lg sm:px-10 sm:py-16">
+        {/* Brand Story */}
+        <section className="px-5 py-16 sm:px-8 sm:py-20 lg:px-12">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-4xl bg-[#FFF4EE] px-6 py-14 sm:px-10 sm:py-20">
+            <div className="absolute -right-16 -top-16 h-52 w-52 rounded-full bg-rose-100/70" />
+            <div className="absolute -bottom-20 -left-12 h-48 w-48 rounded-full bg-amber-100/70" />
 
-            <p className="text-sm font-bold uppercase tracking-widest text-[#a09b9b]/70">
-              About ChoupiJuni
-            </p>
+            <div className="relative z-10 mx-auto max-w-2xl text-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-rose-400">
+                About ChoupiJuni
+              </p>
 
-            <h2 className="mt-3 text-3xl font-bold text-[#676363] sm:text-4xl">
-              Made for little moments
-            </h2>
+              <h2 className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">
+                Made for Little Moments
+              </h2>
 
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#a09b9b]/70">
-              ChoupiJuni brings together fun, practical and thoughtfully
-              designed products made especially for little ones.
-            </p>
+              <div className="mx-auto my-6 h-px w-16 bg-amber-300" />
 
-            <Link
-              to="/about"
-              className="mt-8 inline-block rounded-full bg-[#bdb2b0] px-7 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-[#8c8584] hover:shadow-lg"
-            >
-              Know More About Us
-            </Link>
+              <p className="text-base leading-8 text-stone-600 sm:text-lg">
+                ChoupiJuni brings together fun, practical and thoughtfully
+                designed products made especially for little ones.
+              </p>
 
+              <Link
+                to="/about"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-rose-400 px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-1 hover:bg-rose-500 hover:shadow-md"
+              >
+                Know More About Us
+                <ArrowRight size={17} />
+              </Link>
+            </div>
           </div>
         </section>
-        {/* Watsapp CTA */}
-        <section className="px-6 py-20">
-          <div className="mx-auto max-w-5xl rounded-3xl bg-[#67636334] px-6 py-12 text-center shadow-lg sm:px-10 sm:py-16">
-            <h2 className="text-3xl font-bold text-[#676363] sm:text-4xl">
-              Found something your little one will love?
-            </h2>
 
-            <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-[#a09b9b]/70 sm:text-lg">
-              Get in touch with us on WhatsApp to place your order or ask any questions.
-            </p>
+        {/* WhatsApp CTA */}
+        <section className="px-5 pb-16 sm:px-8 sm:pb-24 lg:px-12">
+          <div className="relative mx-auto max-w-6xl overflow-hidden rounded-4xl bg-[#FFFAF6] px-6 py-14 sm:px-10 sm:py-20">
+            <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-rose-100/60" />
 
-            <a
-              href={`https://wa.me/919597996585?text=${encodeURIComponent("Hi! I’d like to place an order. Could you please help me with the ordering process?")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-block rounded-full bg-[#bdb2b0] px-5 py-2.5  text-[white] shadow-sm transition-[background-color,color,box-shadow,translate] duration-800 ease-in-out hover:-translate-y-0.5 hover:bg-[#1B9A58] hover:shadow-md"
-            >
-              Order on WhatsApp
-            </a>
+            <div className="relative z-10 mx-auto max-w-2xl text-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-rose-400">
+                We're Here to Help
+              </p>
+
+              <h2 className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">
+                Found Something Your Little One Will Love?
+              </h2>
+
+              <p className="mx-auto mt-5 max-w-xl leading-8 text-stone-600">
+                Get in touch with us on WhatsApp to place your order
+                or ask any questions.
+              </p>
+
+              <a
+                href={`https://wa.me/919597996585?text=${encodeURIComponent(
+                  "Hi! I’d like to place an order. Could you please help me with the ordering process?"
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-rose-400 px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-1 hover:bg-rose-500 hover:shadow-md"
+              >
+                Order on WhatsApp
+                <ArrowRight size={17} />
+              </a>
+            </div>
           </div>
         </section>
       </main>

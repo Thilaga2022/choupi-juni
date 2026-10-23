@@ -1,15 +1,16 @@
-import SEO from "../components/SEO"
+import SEO from "../components/SEO";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ArrowLeft, ArrowRight, MessageCircle } from "lucide-react";
 import categories from "../data/categories";
-import straw from "../assets/feature-straw.png"
-import steel from "../assets/feature-steel.png"
-import leakseal from "../assets/feature-leak-proof.png"
-import base from "../assets/feature-base.png"
-import desc1 from "../assets/description-1.png"
-import desc2 from "../assets/description-2.png"
-import desc3 from "../assets/description-3.png"
-import desc4 from "../assets/description-4.png"
+import straw from "../assets/feature-straw.png";
+import steel from "../assets/feature-steel.png";
+import leakseal from "../assets/feature-leak-proof.png";
+import base from "../assets/feature-base.png";
+import desc1 from "../assets/description-1.png";
+import desc2 from "../assets/description-2.png";
+import desc3 from "../assets/description-3.png";
+import desc4 from "../assets/description-4.png";
 
 const featureImages = [
   {
@@ -27,17 +28,12 @@ const featureImages = [
     title: "Leak Proof Lid",
     image: leakseal,
   },
-
   {
     id: "base",
     title: "Anti-slip base",
     image: base,
   },
-
-
 ];
-
-
 
 function ProductDetails() {
   const { productId } = useParams();
@@ -59,6 +55,7 @@ function ProductDetails() {
 
   const [selectedFeature, setSelectedFeature] = useState(null);
 
+  // Navigate between existing styles
   const changeStyle = (direction) => {
     const styles = product.styles;
     const currentIndex = styles.findIndex(
@@ -75,22 +72,27 @@ function ProductDetails() {
   // Product not found
   if (!product) {
     return (
+      <main className="min-h-[60vh] bg-[#FFFAF6] px-5 py-20 text-stone-800 sm:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-400">
+            ChoupiJuni Collection
+          </p>
 
-
-      <main className="px-6 py-20">
-        <div className="mx-auto max-w-6xl text-center">
-          <h1 className="text-3xl font-bold text-[#293241]">
+          <h1 className="mt-4 font-serif text-4xl sm:text-5xl">
             Product Not Found
           </h1>
 
-          <p className="mt-4 text-[#293241]/70">
+          <div className="mx-auto my-6 h-px w-16 bg-amber-300" />
+
+          <p className="leading-7 text-stone-600">
             Sorry, we couldn't find the product you're looking for.
           </p>
 
           <Link
             to="/products"
-            className="mt-8 inline-block rounded-full bg-[#6CB4EE] px-7 py-3 font-semibold text-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-[#2878B8] hover:shadow-lg"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-rose-400 px-7 py-3 font-semibold text-white transition hover:bg-rose-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
           >
+            <ArrowLeft size={17} />
             Back to Products
           </Link>
         </div>
@@ -98,11 +100,13 @@ function ProductDetails() {
     );
   }
 
-
-
   // Calculate discount
   const discountPercentage = Math.round(
     ((product.mrp - product.salePrice) / product.mrp) * 100
+  );
+
+  const selectedStyleIndex = product.styles.findIndex(
+    (style) => style.id === selectedStyle.id
   );
 
   return (
@@ -113,28 +117,30 @@ function ProductDetails() {
         path={`/products/${productId}`}
       />
 
-      <main>
+      <main className="overflow-hidden bg-white text-stone-800">
         {/* Product Details */}
-        <section className="px-6 py-16">
+        <section className="bg-[#FFFAF6] px-5 py-10 sm:px-8 sm:py-16 lg:px-12">
           <div className="mx-auto max-w-6xl">
-
             {/* Back to Products */}
             <Link
               to="/products"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-[#2878B8] transition-colors hover:text-[#1f6195]"
+              className="inline-flex items-center gap-2 rounded-full border border-rose-100 bg-white px-4 py-2.5 text-sm font-medium text-stone-600 transition hover:border-rose-200 hover:text-rose-500"
             >
-              ← Back to Products
+              <ArrowLeft size={16} />
+              Back to Products
             </Link>
 
-            <div className="mt-8 grid gap-12 lg:grid-cols-2 lg:gap-16">
-
-              {/* LEFT - Product Gallery */}
-              <div>
-                <div className="overflow-hidden rounded-3xl border border-[#D9ECFA] bg-[#EAF5FF] p-3 shadow-sm sm:p-4">
-
-                  {/* Main Image */}
+            <div className="mt-8 grid items-start gap-10 lg:grid-cols-2 lg:gap-16">
+              {/* LEFT — Product Gallery */}
+              <div className="min-w-0">
+                {/* Main Image */}
+                <div className="overflow-hidden rounded-3xl border border-rose-100/80 bg-[#FFF4EE] p-3 shadow-[0_12px_40px_rgba(120,90,70,0.06)] sm:p-5">
                   <img
-                    src={selectedFeature ? selectedFeature.image : selectedStyle.image}
+                    src={
+                      selectedFeature
+                        ? selectedFeature.image
+                        : selectedStyle.image
+                    }
                     alt={
                       selectedFeature
                         ? `${product.name} - ${selectedFeature.title}`
@@ -142,60 +148,54 @@ function ProductDetails() {
                     }
                     className="aspect-square w-full rounded-2xl object-cover"
                   />
-
-
-
                 </div>
 
-
-                {/* Additional Style Navigation */}
-                <div className="mt-4 flex items-center justify-center gap-5">
+                {/* Previous / Next Style Navigation */}
+                <div className="mt-5 flex items-center justify-center gap-5">
                   <button
                     type="button"
                     onClick={() => changeStyle(-1)}
                     aria-label="Previous style"
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D9ECFA] text-xl text-[#2878B8] transition hover:bg-[#EAF5FF]"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-rose-200 bg-white text-rose-500 transition hover:border-rose-400 hover:bg-[#FFF4EE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
                   >
-                    &#8249;
+                    <ArrowLeft size={19} />
                   </button>
 
-                  <span className="min-w-12 text-center text-sm font-semibold text-[#293241]">
-                    {product.styles.findIndex(
-                      (style) => style.id === selectedStyle.id
-                    ) + 1}{" "}
-                    / {product.styles.length}
+                  <span className="min-w-16 text-center text-sm font-medium text-stone-500">
+                    {selectedStyleIndex + 1} / {product.styles.length}
                   </span>
 
                   <button
                     type="button"
                     onClick={() => changeStyle(1)}
                     aria-label="Next style"
-                    className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D9ECFA] text-xl text-[#2878B8] transition hover:bg-[#EAF5FF]"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-rose-200 bg-white text-rose-500 transition hover:border-rose-400 hover:bg-[#FFF4EE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
                   >
-                    &#8250;
+                    <ArrowRight size={19} />
                   </button>
                 </div>
 
+                <p className="mt-2 text-center text-xs text-stone-400">
+                  Explore the available styles
+                </p>
               </div>
 
-
-              {/* RIGHT - Product Information */}
-              <div className="flex flex-col justify-center">
-
-                {/* Category */}
-                <p className="text-sm font-semibold uppercase tracking-widest text-[#2878B8]">
+              {/* RIGHT — Product Information */}
+              <div className="flex min-w-0 flex-col justify-center">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-rose-400">
                   {productCategory?.name}
                 </p>
 
-                {/* Product Name */}
-                <h1 className="mt-3 text-3xl font-bold leading-tight text-[#293241] sm:text-4xl">
+                <h1 className="mt-3 font-serif text-3xl leading-tight text-stone-800 sm:text-4xl lg:text-5xl">
                   {product.name}
                 </h1>
 
+                <div className="mt-4 h-px w-16 bg-amber-300" />
+
                 {/* Selected Style */}
-                <p className="mt-3 text-sm text-[#293241]/60">
+                <p className="mt-4 text-sm text-stone-500">
                   Selected Style:{" "}
-                  <span className="font-semibold text-[#293241]">
+                  <span className="font-semibold text-stone-800">
                     {selectedStyle.name}
                   </span>
                 </p>
@@ -203,40 +203,41 @@ function ProductDetails() {
                 {/* Pricing */}
                 <div className="mt-6">
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="text-lg text-[#293241]/40 line-through">
+                    <span className="text-lg text-stone-400 line-through">
                       ₹{product.mrp}
                     </span>
 
-                    <span className="text-3xl font-bold text-[#2878B8]">
+                    <span className="text-3xl font-semibold text-rose-500 sm:text-4xl">
                       ₹{product.salePrice}
                     </span>
 
-                    <span className="rounded-full bg-[#FFD95A] px-3 py-1 text-xs font-extrabold text-[#293241]">
+                    <span className="rounded-full bg-[#FFF0D8] px-3 py-1.5 text-xs font-bold text-stone-700">
                       {discountPercentage}% OFF
                     </span>
                   </div>
 
-                  <p className="mt-2 text-xs text-[#293241]/55">
+                  <p className="mt-3 text-sm text-stone-500">
                     Special launch price
                   </p>
-                  <p className="mt-2 text-xs text-[#293241]/55">
-                    Shipping is calculated at checkout
+
+                  <p className="mt-1 text-xs text-stone-400">
+                    Shipping details will be confirmed when you order.
                   </p>
                 </div>
 
-                {/* Divider */}
-                <div className="mt-6 h-px bg-[#D9ECFA]" />
-
+                <div className="mt-7 h-px bg-rose-100" />
 
                 {/* Style Selection */}
-                <div className="mt-5">
-                  <p className="mb-3 text-sm font-semibold text-[#293241]">
+                <div className="mt-6">
+                  <p className="mb-3 text-sm font-semibold text-stone-800">
                     Choose a Style
                   </p>
 
-                  <div className="flex gap-3 overflow-x-auto pb-2">
+                  <div className="flex gap-3 overflow-x-auto pb-3">
                     {product.styles.map((style) => {
-                      const isOutOfStock = ["sheep", "cat"].includes(style.id);
+                      const isOutOfStock = ["sheep", "cat"].includes(
+                        style.id
+                      );
                       const isSelected = selectedStyle.id === style.id;
 
                       return (
@@ -247,22 +248,26 @@ function ProductDetails() {
                             setSelectedStyle(style);
                             setSelectedFeature(null);
                           }}
-                          aria-label={`${style.name}${isOutOfStock ? " - Out of stock" : ""}`}
+                          aria-label={`${style.name}${
+                            isOutOfStock ? " - Out of stock" : ""
+                          }`}
                           aria-pressed={isSelected}
-                          className={`relative shrink-0 overflow-hidden rounded-xl border-2 bg-white p-1 transition-all duration-200 ${isSelected
-                            ? "border-[#2878B8] shadow-md"
-                            : "border-[#D9ECFA] hover:border-[#6CB4EE]"
-                            }`}
+                          className={`relative shrink-0 overflow-hidden rounded-2xl border-2 bg-white p-1.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 ${
+                            isSelected
+                              ? "border-rose-400 shadow-[0_4px_16px_rgba(244,114,182,0.16)]"
+                              : "border-rose-100 hover:border-rose-300"
+                          }`}
                         >
                           <img
                             src={style.image}
                             alt={style.name}
-                            className={`aspect-square w-14 rounded-lg object-cover ${isOutOfStock ? "opacity-50 grayscale" : ""
-                              }`}
+                            className={`h-16 w-16 rounded-xl object-cover sm:h-20 sm:w-20 ${
+                              isOutOfStock ? "opacity-50 grayscale" : ""
+                            }`}
                           />
 
                           {isOutOfStock && (
-                            <span className="absolute inset-x-0 bottom-1 rounded-b-lg bg-[#293241]/85 px-1 py-1 text-center text-[8px] font-bold text-white">
+                            <span className="absolute inset-x-1 bottom-1 rounded-b-lg bg-stone-800/85 px-1 py-1 text-center text-[8px] font-bold text-white">
                               OUT OF STOCK
                             </span>
                           )}
@@ -274,30 +279,31 @@ function ProductDetails() {
 
                 {/* Feature Images */}
                 <div className="mt-5">
-                  <p className="mb-3 text-sm font-semibold text-[#293241]">
+                  <p className="mb-3 text-sm font-semibold text-stone-800">
                     Premium Features
                   </p>
 
-                  <div className="flex gap-3 overflow-x-auto pb-2">
+                  <div className="flex gap-3 overflow-x-auto pb-3">
                     {featureImages.map((feature) => (
                       <button
                         key={feature.id}
                         type="button"
-                        onClick={() => {
-                          setSelectedFeature(feature);
-                        }}
-                        className={`shrink-0 rounded-xl border-2 bg-white p-1 transition-all duration-200 ${selectedFeature?.id === feature.id
-                          ? "border-[#2878B8] shadow-md"
-                          : "border-[#D9ECFA] hover:border-[#6CB4EE]"
-                          }`}
+                        onClick={() => setSelectedFeature(feature)}
+                        aria-label={`View ${feature.title}`}
+                        aria-pressed={selectedFeature?.id === feature.id}
+                        className={`shrink-0 rounded-2xl border-2 bg-white p-1.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 ${
+                          selectedFeature?.id === feature.id
+                            ? "border-rose-400 shadow-[0_4px_16px_rgba(244,114,182,0.16)]"
+                            : "border-rose-100 hover:border-rose-300"
+                        }`}
                       >
                         <img
                           src={feature.image}
                           alt={feature.title}
-                          className="h-14 w-14 rounded-lg object-cover"
+                          className="h-16 w-16 rounded-xl object-cover sm:h-20 sm:w-20"
                         />
 
-                        <span className="mt-1 block text-[10px] font-medium text-[#293241]/70">
+                        <span className="mt-2 block max-w-20 text-center text-[10px] font-medium leading-4 text-stone-600">
                           {feature.title}
                         </span>
                       </button>
@@ -317,74 +323,96 @@ Discount: ${discountPercentage}%`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-9 inline-flex w-full items-center justify-center rounded-full bg-[#FFD95A] px-7 py-3.5 font-bold text-[#293241] shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-yellow-400 hover:shadow-lg sm:w-fit"
+                  className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-rose-400 px-7 py-4 font-semibold text-white shadow-[0_8px_24px_rgba(244,114,182,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose-500 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2 sm:w-fit"
                 >
+                  <MessageCircle size={19} />
                   Order on WhatsApp
                 </a>
 
-                <p className="mt-4 text-center text-xs text-[#293241]/60 sm:text-left">
+                <p className="mt-4 flex items-center gap-2 text-xs leading-6 text-stone-500">
                   Have a question about this product? Chat with us on WhatsApp.
                 </p>
-
               </div>
             </div>
           </div>
         </section>
 
+        {/* Key Attributes */}
+        <section className="mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
+          <div className="mb-10 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-rose-400">
+              Made with Care
+            </p>
 
-        {/* Key Attributes Section */}
-        <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-          <h2 className="mb-6 text-2xl font-bold text-[#293241] sm:mb-8 sm:text-3xl">
-            Key Attributes
-          </h2>
+            <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
+              Key Attributes
+            </h2>
 
-          <div className="space-y-8 sm:space-y-10">
+            <div className="mx-auto my-5 h-px w-16 bg-amber-300" />
+          </div>
+
+          <div className="space-y-10 sm:space-y-14">
             {[
               {
                 id: "description-1",
                 image: desc1,
                 title: "Keeps Drinks Warm or Cool",
-                description: "Designed with a multi-layer construction that helps retain heat or cold for longer, keeping your drink at a more comfortable temperature throughout the day.",
+                description:
+                  "Designed with a multi-layer construction that helps retain heat or cold for longer, keeping your drink at a more comfortable temperature throughout the day.",
               },
               {
                 id: "description-2",
                 image: desc2,
                 title: "Two-way Drinking Design",
-                description: "Enjoy versatile drinking with two convenient options: use the built-in sipper for easy sipping or open the lid for direct drinking through the wide opening..",
+                description:
+                  "Enjoy versatile drinking with two convenient options: use the built-in sipper for easy sipping or open the lid for direct drinking through the wide opening..",
               },
               {
                 id: "description-3",
                 image: desc3,
                 title: "Thoughtful Details",
-                description: "Thoughtfully designed to fit comfortably in compatible car cup holders, making it convenient to keep your drink within easy reach during road trips and daily commutes.",
+                description:
+                  "Thoughtfully designed to fit comfortably in compatible car cup holders, making it convenient to keep your drink within easy reach during road trips and daily commutes.",
               },
               {
                 id: "description-4",
                 image: desc4,
                 title: "Multi-Purpose Inner Lid",
-                description: "Designed for added convenience, the inner lid doubles as a small cup, making it easy to pour and enjoy tea or other beverages on the go.",
+                description:
+                  "Designed for added convenience, the inner lid doubles as a small cup, making it easy to pour and enjoy tea or other beverages on the go.",
               },
             ].map((item, index) => (
               <div
                 key={item.id}
-                className={`flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8 ${index !== 0 ? "border-t border-[#D9ECFA] pt-8 sm:pt-10" : ""
-                  }`}
+                className={`grid items-center gap-6 sm:grid-cols-2 sm:gap-10 ${
+                  index % 2 !== 0 ? "sm:[&>div:first-child]:order-2" : ""
+                } ${
+                  index !== 0
+                    ? "border-t border-rose-100 pt-10 sm:pt-14"
+                    : ""
+                }`}
               >
-                <div className="overflow-hidden rounded-3xl border border-[#D9ECFA] bg-[#EAF5FF] p-3 shadow-sm sm:p-4">
+                <div className="overflow-hidden rounded-3xl border border-rose-100/80 bg-[#FFF4EE] p-3 shadow-[0_12px_40px_rgba(120,90,70,0.05)] sm:p-4">
                   <img
                     src={item.image}
                     alt={item.title}
                     loading="lazy"
-                    className="rounded h-auto max-h-80 w-full object-contain sm:h-56 md:h-60"
+                    className="mx-auto h-auto max-h-80 w-full rounded-2xl object-contain sm:h-64"
                   />
                 </div>
 
-                <div className="flex-1 py-1">
-                  <h3 className="text-lg font-semibold text-[#293241] sm:text-xl">
+                <div className="py-2">
+                  <p className="text-xs font-semibold uppercase tracking-[0.25em] text-rose-400">
+                    Feature {index + 1}
+                  </p>
+
+                  <h3 className="mt-3 font-serif text-2xl leading-snug text-stone-800 sm:text-3xl">
                     {item.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-7 text-[#293241]/75 sm:text-base">
+                  <div className="my-4 h-px w-12 bg-amber-300" />
+
+                  <p className="text-sm leading-7 text-stone-600 sm:text-base sm:leading-8">
                     {item.description}
                   </p>
                 </div>
@@ -393,101 +421,87 @@ Discount: ${discountPercentage}%`
           </div>
         </section>
 
-
-
-
-
-
         {/* Product Information */}
-        <section className="border-t border-[#D9ECFA] bg-[#EAF5FF]/40 px-6 py-16">
+        <section className="border-t border-rose-100 bg-[#FFFAF6] px-5 py-14 sm:px-8 sm:py-20 lg:px-12">
           <div className="mx-auto max-w-6xl">
-
-            <div className="grid gap-12 md:grid-cols-2">
-
+            <div className="grid gap-10 md:grid-cols-2 md:gap-14">
               {/* Product Details */}
-              <div>
-                <h2 className="text-2xl font-bold text-[#293241]">
+              <div className="rounded-3xl border border-rose-100/80 bg-white p-6 shadow-[0_12px_40px_rgba(120,90,70,0.04)] sm:p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-rose-400">
+                  At a Glance
+                </p>
+
+                <h2 className="mt-3 font-serif text-2xl sm:text-3xl">
                   Product Details
                 </h2>
 
                 <div className="mt-6 space-y-4">
-
-                  <div className="flex justify-between gap-6 border-b border-[#D9ECFA] pb-4">
-                    <span className="text-sm text-[#293241]/60">
-                      Category
-                    </span>
-
-                    <span className="text-sm font-semibold text-[#293241]">
+                  <div className="flex justify-between gap-6 border-b border-rose-100 pb-4">
+                    <span className="text-sm text-stone-500">Category</span>
+                    <span className="text-right text-sm font-semibold text-stone-800">
                       {productCategory?.name}
                     </span>
                   </div>
 
-                  <div className="flex justify-between gap-6 border-b border-[#D9ECFA] pb-4">
-                    <span className="text-sm text-[#293241]/60">
-                      Product
-                    </span>
-
-                    <span className="text-right text-sm font-semibold text-[#293241]">
+                  <div className="flex justify-between gap-6 border-b border-rose-100 pb-4">
+                    <span className="text-sm text-stone-500">Product</span>
+                    <span className="text-right text-sm font-semibold text-stone-800">
                       {product.name}
                     </span>
                   </div>
 
-                  <div className="flex justify-between gap-6 border-b border-[#D9ECFA] pb-4">
-                    <span className="text-sm text-[#293241]/60">
+                  <div className="flex justify-between gap-6 border-b border-rose-100 pb-4">
+                    <span className="text-sm text-stone-500">
                       Selected Style
                     </span>
-
-                    <span className="text-sm font-semibold text-[#293241]">
+                    <span className="text-right text-sm font-semibold text-stone-800">
                       {selectedStyle.name}
                     </span>
                   </div>
 
-                  <div className="flex justify-between gap-6 border-b border-[#D9ECFA] pb-4">
-                    <span className="text-sm text-[#293241]/60">
-                      Price
-                    </span>
-
-                    <span className="text-sm font-semibold text-[#2878B8]">
+                  <div className="flex justify-between gap-6">
+                    <span className="text-sm text-stone-500">Price</span>
+                    <span className="text-right text-sm font-semibold text-rose-500">
                       ₹{product.salePrice}
                     </span>
                   </div>
-
                 </div>
               </div>
 
               {/* Shipping & Returns */}
-              <div>
-                <h2 className="text-2xl font-bold text-[#293241]">
+              <div className="rounded-3xl border border-rose-100/80 bg-white p-6 shadow-[0_12px_40px_rgba(120,90,70,0.04)] sm:p-8">
+                <p className="text-xs font-semibold uppercase tracking-[0.25em] text-rose-400">
+                  Shop with Confidence
+                </p>
+
+                <h2 className="mt-3 font-serif text-2xl sm:text-3xl">
                   Shipping & Returns
                 </h2>
 
-                <div className="mt-6 space-y-5">
-
+                <div className="mt-6 space-y-7">
                   <div>
-                    <h3 className="font-semibold text-[#293241]">
-                      Shipping
-                    </h3>
+                    <h3 className="font-semibold text-stone-800">Shipping</h3>
 
-                    <p className="mt-2 text-sm leading-6 text-[#293241]/65">
+                    <p className="mt-2 text-sm leading-7 text-stone-600">
                       We carefully pack every order and arrange delivery to
                       your doorstep. Shipping details and delivery timelines
                       will be confirmed when you place your order.
                     </p>
                   </div>
 
-                  <div>
-                    <h3 className="font-semibold text-[#293241]">
-                      Returns
-                    </h3>
+                  <div className="border-t border-rose-100 pt-6">
+                    <h3 className="font-semibold text-stone-800">Returns</h3>
 
-                    <p className="mt-2 text-sm leading-6 text-[#293241]/65">
-                      We thoroughly inspect every product before it leaves us, ensuring it meets our quality standards. With every order carefully checked and packed, you can shop with confidence and enjoy your purchase from the moment it arrives.
+                    <p className="mt-2 text-sm leading-7 text-stone-600">
+                      We thoroughly inspect every product before it leaves us,
+                      ensuring it meets our quality standards. With every
+                      order carefully checked and packed, you can shop with
+                      confidence and enjoy your purchase from the moment it
+                      arrives.
                     </p>
                   </div>
-
                 </div>
               </div>
-
             </div>
           </div>
         </section>

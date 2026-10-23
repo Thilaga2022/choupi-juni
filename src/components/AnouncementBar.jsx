@@ -20,8 +20,6 @@ const AnnouncementBar = () => {
         setCurrentIndex((prev) => (prev + 1) % OFFERS.length);
         setIsChanging(false);
       }, 250);
-
-      return () => clearTimeout(timeout);
     }, MESSAGE_INTERVAL);
 
     return () => clearInterval(interval);
@@ -29,15 +27,16 @@ const AnnouncementBar = () => {
 
   return (
     <aside
-      className="w-full bg-[#BDB2B0] text-[#ffffff]"
+      className="w-full border-b border-rose-300/30 bg-rose-400 text-white"
       aria-label="Website announcements"
     >
-      <div className="mx-auto flex h-9 items-center justify-center px-4 sm:h-10">
+      <div className="mx-auto flex min-h-10 items-center justify-center px-4 py-2 sm:min-h-11">
         <p
+          aria-live="polite"
           className={`
-            text-center text-xs font-medium tracking-wide
+            text-center text-[10px] font-semibold uppercase tracking-[0.12em]
             transition-all duration-300 ease-out
-            sm:text-sm
+            sm:text-xs sm:tracking-[0.18em]
             ${
               isChanging
                 ? "scale-95 opacity-0"
@@ -48,9 +47,12 @@ const AnnouncementBar = () => {
           {OFFERS[currentIndex]}
         </p>
       </div>
+
+      <div className="h-0.5 w-full bg-rose-300/40">
+        <div className="mx-auto h-full w-16 bg-amber-300" />
+      </div>
     </aside>
   );
 };
 
 export default AnnouncementBar;
-
