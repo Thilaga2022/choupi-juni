@@ -23,9 +23,12 @@
 
 body {
   margin: 0;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: "Mali", cursive;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.4px;
   background-color: #fff9f0;
-  color: #293241;
+  
 }
 
 @media (max-width: 767px) {

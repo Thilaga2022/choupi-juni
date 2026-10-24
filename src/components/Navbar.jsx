@@ -19,28 +19,30 @@ function Navbar() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-rose-100/80 bg-[#FFFAF6]/95 px-4 py-3 backdrop-blur-md sm:px-6 lg:px-8">
+    <nav className="sticky top-0 z-50 border-b border-rose-50 bg-[#FFFAF6]/95 px-4 py-3 backdrop-blur-md sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         {/* Top Navigation */}
         <div className="flex min-h-14 items-center justify-between gap-4">
           {/* Brand */}
-          <Link
-            to="/"
-            onClick={() => {
-              closeMenu();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            aria-label="ChoupiJuni home"
-            className="group flex shrink-0 flex-col"
-          >
-            <span className="font-serif text-3xl leading-none tracking-wide text-stone-800 transition-colors group-hover:text-rose-500 sm:text-4xl lg:text-[2.7rem]">
-              ChoupiJuni
-            </span>
+          <div className="relative">
+            <Link
+              to="/"
+              onClick={() =>
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                })
+              }
+              className=" text-5xl  tracking-widest font-heading text-[#060606]"
+            >
+              ChoupiJuni                           
+            </Link>
+            
 
-            <span className="mt-2 text-[8px] font-medium uppercase tracking-[0.25em] text-rose-400 sm:text-[9px]">
+            <p className="absolute right-2 top-11 max-w-xs text-[15px] tracking-widest text-[#060606]">
               Growing With You
-            </span>
-          </Link>
+            </p>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-5 lg:flex xl:gap-8">
@@ -50,10 +52,9 @@ function Navbar() {
                 to={link.path}
                 end={link.path === "/"}
                 className={({ isActive }) =>
-                  `relative py-2 text-xs font-semibold tracking-[0.12em] transition-colors duration-200 xl:text-sm ${
-                    isActive
-                      ? "text-rose-500 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-rose-400"
-                      : "text-stone-500 hover:text-rose-500"
+                  `relative py-2 text-xs font-semibold tracking-[0.12em] transition-colors duration-200 xl:text-sm ${isActive
+                    ? "text-rose-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-rose-100"
+                    : "text-stone-500 hover:text-stone-400"
                   }`
                 }
               >
@@ -65,7 +66,7 @@ function Navbar() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-rose-400 px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose-500 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
+              className="inline-flex items-center gap-2 rounded-full bg-stone-300 px-5 py-3 text-sm font-semibold text-[#000000a5] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose-100 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
             >
               <MessageCircle size={16} />
               Order on WhatsApp
@@ -113,10 +114,9 @@ function Navbar() {
                       end={link.path === "/"}
                       onClick={closeMenu}
                       className={({ isActive }) =>
-                        `flex items-center justify-between rounded-xl px-4 py-3.5 text-sm font-semibold tracking-wide transition-colors ${
-                          isActive
-                            ? "bg-[#FFF0E9] text-rose-500"
-                            : "text-stone-600 hover:bg-white hover:text-rose-500"
+                        `flex items-center justify-between rounded-xl px-4 py-3.5 text-sm font-semibold tracking-wide transition-colors ${isActive
+                          ? "bg-[#FFF0E9] text-rose-500"
+                          : "text-stone-600 hover:bg-white hover:text-rose-500"
                         }`
                       }
                     >

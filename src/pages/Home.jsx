@@ -201,11 +201,11 @@ function Home() {
                 Why ChoupiJuni?
               </p>
 
-              <h2 className="mt-3 font-serif text-4xl sm:text-5xl">
+              <h2 className="mt-3 font-heading text-green-900 text-4xl sm:text-5xl">
                 Made with Little Ones in Mind
               </h2>
 
-              <p className="mx-auto mt-4 max-w-xl leading-8 text-stone-600">
+              <p className="mx-auto mt-4 max-w-xl leading-8 text-green-900">
                 Simple, cheerful and practical products for everyday adventures.
               </p>
             </div>
@@ -242,20 +242,20 @@ function Home() {
                 About ChoupiJuni
               </p>
 
-              <h2 className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">
+              <h2 className="mt-4 font-heading text-4xl text-green-900 leading-tight sm:text-5xl">
                 Made for Little Moments
               </h2>
 
               <div className="mx-auto my-6 h-px w-16 bg-amber-300" />
 
-              <p className="text-base leading-8 text-stone-600 sm:text-lg">
+              <p className="text-base leading-8 text-green-900 sm:text-lg">
                 ChoupiJuni brings together fun, practical and thoughtfully
                 designed products made especially for little ones.
               </p>
 
               <Link
                 to="/about"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-rose-400 px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-1 hover:bg-rose-500 hover:shadow-md"
+                className="mt-8 inline-flex items-center gap-2 border-1 rounded-full bg-rose-100 px-7 py-3.5 text-sm font-semibold text-green-900 shadow-sm transition hover:-translate-y-1 hover:bg-rose-400 hover:shadow-md"
               >
                 Know More About Us
                 <ArrowRight size={17} />

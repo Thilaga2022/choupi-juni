@@ -27,7 +27,7 @@ const AnnouncementBar = () => {
 
   return (
     <aside
-      className="w-full border-b border-rose-300/30 bg-rose-400 text-white"
+      className="w-full bg-[#AFA3A3] text-white"
       aria-label="Website announcements"
     >
       <div className="mx-auto flex min-h-10 items-center justify-center px-4 py-2 sm:min-h-11">
@@ -37,10 +37,9 @@ const AnnouncementBar = () => {
             text-center text-[10px] font-semibold uppercase tracking-[0.12em]
             transition-all duration-300 ease-out
             sm:text-xs sm:tracking-[0.18em]
-            ${
-              isChanging
-                ? "scale-95 opacity-0"
-                : "scale-100 opacity-100"
+            ${isChanging
+              ? "scale-95 opacity-0"
+              : "scale-100 opacity-100"
             }
           `}
         >
@@ -48,9 +47,6 @@ const AnnouncementBar = () => {
         </p>
       </div>
 
-      <div className="h-0.5 w-full bg-rose-300/40">
-        <div className="mx-auto h-full w-16 bg-amber-300" />
-      </div>
     </aside>
   );
 };
