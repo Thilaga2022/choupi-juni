@@ -53,7 +53,7 @@ function Navbar() {
                 end={link.path === "/"}
                 className={({ isActive }) =>
                   `relative py-2 text-xs font-semibold tracking-[0.12em] transition-colors duration-200 xl:text-sm ${isActive
-                    ? "text-rose-200 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-rose-100"
+                    ? "text-green-900 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-rose-100"
                     : "text-stone-500 hover:text-stone-400"
                   }`
                 }
@@ -66,7 +66,7 @@ function Navbar() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-stone-300 px-5 py-3 text-sm font-semibold text-[#000000a5] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose-100 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
+              className="inline-flex items-center gap-2 rounded-full bg-stone-300 px-5 py-3 text-sm font-semibold text-green-900 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose-100 hover:border hover:border-rose-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
             >
               <MessageCircle size={16} />
               Order on WhatsApp
@@ -78,7 +78,7 @@ function Navbar() {
           <button
             type="button"
             onClick={() => setIsMenuOpen((open) => !open)}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-rose-100 bg-white text-stone-700 transition hover:border-rose-300 hover:bg-[#FFF4EE] hover:text-rose-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 lg:hidden"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-rose-100 bg-white text-green-900 transition hover:border-rose-300 hover:bg-[#FFF4EE] hover:text-rose-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 lg:hidden"
             aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
@@ -115,7 +115,7 @@ function Navbar() {
                       onClick={closeMenu}
                       className={({ isActive }) =>
                         `flex items-center justify-between rounded-xl px-4 py-3.5 text-sm font-semibold tracking-wide transition-colors ${isActive
-                          ? "bg-[#FFF0E9] text-rose-500"
+                          ? "bg-[#FFF0E9] text-green-900"
                           : "text-stone-600 hover:bg-white hover:text-rose-500"
                         }`
                       }
@@ -131,14 +131,14 @@ function Navbar() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={closeMenu}
-                  className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-rose-400 px-5 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-rose-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
+                  className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-full bg-stone-300 px-5 py-3.5 text-sm font-semibold text-green-900 shadow-sm transition hover:bg-rose-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
                 >
                   <MessageCircle size={17} />
                   Order on WhatsApp
                   <ArrowUpRight size={15} />
                 </a>
 
-                <p className="mt-4 text-center font-serif text-sm italic text-stone-400">
+                <p className="mt-4 text-center font-serif text-sm italic text-green-900">
                   Growing With You
                 </p>
               </div>

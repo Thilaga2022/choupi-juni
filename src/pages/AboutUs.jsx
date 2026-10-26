@@ -8,6 +8,8 @@ import {
   Leaf,
   HandHeart,
 } from "lucide-react";
+import StoryPic from "../assets/storypic.png"
+import neha from "../assets/babyNeha.png"
 
 const features = [
   {
@@ -39,7 +41,7 @@ export default function About() {
         description="Discover the story behind ChoupiJuni, our values, and our commitment to thoughtfully selected products."
         path="/about"
       />
-      <main className="overflow-hidden bg-white text-stone-800">
+      <main className="overflow-hidden bg-white text-green-900">
         {/* HERO */}
         <section className="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-12">
           <div className="grid items-center gap-10 md:grid-cols-2 md:gap-16">
@@ -48,13 +50,13 @@ export default function About() {
                 A little world of love
               </span>
 
-              <h1 className="font-serif text-5xl leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-                About <span className="italic text-rose-400"><Link to="/">ChoupiJuni</Link></span>
+              <h1 className="font-heading text-5xl leading-tight tracking-tight sm:text-6xl lg:text-7xl">
+                About <span className="font-heading text-rose-400"><Link to="/">ChoupiJuni</Link></span>
               </h1>
 
               <div className="my-6 h-px w-20 bg-amber-300" />
 
-              <p className="max-w-lg text-base leading-8 text-stone-600">
+              <p className="max-w-lg text-base leading-8 ">
                 Childhood is made of little moments, tiny discoveries, and
                 memories that stay with us forever. At ChoupiJuni, we celebrate
                 those precious beginnings with thoughtfully chosen finds for
@@ -63,7 +65,7 @@ export default function About() {
 
               <Link
                 to="/products"
-                className="mt-8 inline-flex items-center gap-3 rounded-full bg-rose-400 px-7 py-3.5 text-sm font-medium text-white transition hover:bg-rose-500"
+                className="mt-8 inline-flex items-center gap-3 rounded-full bg-stone-300 px-7 py-3.5 text-sm font-medium text-green-900 transition hover:bg-rose-100"
               >
                 Discover Our Collection
                 <ArrowRight size={17} />
@@ -74,7 +76,7 @@ export default function About() {
               <div className="absolute -right-3 -top-4 h-32 w-32 rounded-full bg-rose-100 sm:-right-5 sm:-top-6 sm:h-44 sm:w-44" />
 
               <img
-                src="https://images.unsplash.com/photo-1519689680058-324335c77eba?auto=format&fit=crop&w=1000&q=85"
+                src={neha}
                 alt="A tender childhood moment"
                 className="relative z-10 h-320px w-full rounded-t-[45%] rounded-b-2xl object-cover shadow-xl sm:h-110"
               />
@@ -96,7 +98,7 @@ export default function About() {
               <div className="absolute -bottom-5 -left-5 h-2/3 w-2/3 rounded-3xl bg-[#f8dfd8]" />
 
               <img
-                src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1000&q=85"
+                src={StoryPic}
                 alt="A parent sharing a special moment with a child"
                 className="relative h-300px w-full rounded-3xl object-cover shadow-lg sm:h-410px"
               />
@@ -111,27 +113,29 @@ export default function About() {
                 Our Story
               </span>
 
-              <h2 className="mt-3 font-serif text-4xl sm:text-5xl">
+              <h2 className="mt-3 font-heading text-4xl sm:text-5xl">
                 Who We Are
               </h2>
 
               <div className="my-5 h-px w-16 bg-amber-300" />
 
-              <p className="leading-8 text-stone-600">
-                ChoupiJuni is a brand inspired by the magic of childhood.
-                We believe that the things surrounding little ones should
-                feel special, thoughtful, and full of warmth.
+              <p className="leading-8 ">
+                The Heart Behind ChoupiJuni
+                Born from Experience. Inspired by Love. Created for Little Smiles.
+                Our journey began in the logistics industry, where we built our experience in connecting products, people, and markets across the world. Over time, we expanded into global product sourcing, discovering unique products from different countries and exploring new possibilities to bring something special to India.
               </p>
 
-              <p className="mt-4 leading-8 text-stone-600">
-                From everyday essentials to adorable little finds, our aim is
-                to help families discover products that bring comfort, joy,
-                and a touch of charm to their daily lives.
+              <p className="mt-4 leading-8 ">
+                One day, a simple thought inspired us: Why shouldn't our loved ones enjoy everyday essentials in premium quality, just as much as we want to give them the most special gifts?
+                We all love giving unique and memorable gifts to the people who matter most to us. And when it comes to children, parents are always willing to go the extra mile to find products that are special, enjoyable, and safe for their little ones.
               </p>
 
-              <p className="mt-4 leading-8 text-stone-600">
-                Because growing up is a beautiful adventure, and every little
-                moment deserves to be treasured.
+              <p className="mt-4 leading-8 ">
+                This thought became the inspiration behind ChoupiJuni.
+                We envisioned a brand that brings together adorable designs, premium-quality products, everyday usefulness, and the joy of gifting. Our mission is to introduce unique and exciting products to India that make children smile, delight parents, and turn ordinary everyday moments into beautiful memories.
+                ChoupiJuni is more than just a brand. It is our commitment to bringing parents something thoughtfully chosen for their little ones, as if we were choosing it for our own loved ones.
+                Because every child deserves something special, every parent wants the best, and every little smile creates a lasting memory.
+                ChoupiJuni – Little Bottles, Big Smiles. A Little Joy in Every Moment.
               </p>
             </div>
           </div>
@@ -144,10 +148,10 @@ export default function About() {
               <span className="text-xs font-semibold uppercase tracking-[0.25em] text-rose-400">
                 The ChoupiJuni Promise
               </span>
-              <h2 className="mt-3 font-serif text-4xl sm:text-5xl">
+              <h2 className="mt-3 text-green-900 font-heading text-4xl sm:text-5xl">
                 What We Do
               </h2>
-              <p className="mx-auto mt-4 max-w-xl leading-7 text-stone-500">
+              <p className="mx-auto mt-4 max-w-xl leading-7 text-green-900">
                 Thoughtful choices for little beginnings and the everyday
                 moments that make family life beautiful.
               </p>
@@ -170,11 +174,11 @@ export default function About() {
                       />
                     </div>
 
-                    <h3 className="mt-6 font-serif text-2xl">
+                    <h3 className="mt-6 font-heading text-2xl text-green-900">
                       {feature.title}
                     </h3>
 
-                    <p className="mt-3 text-sm leading-7 text-stone-500">
+                    <p className="mt-3 text-sm leading-7 text-green-900">
                       {feature.description}
                     </p>
                   </article>
@@ -193,11 +197,11 @@ export default function About() {
             <div className="relative z-10 mx-auto max-w-2xl text-center">
               <Baby className="mx-auto mb-5 text-rose-400" size={42} strokeWidth={1.3} />
 
-              <h2 className="font-serif text-4xl leading-tight sm:text-5xl">
+              <h2 className="font-heading text-green-900 text-4xl leading-tight sm:text-5xl">
                 Little Things, Big Love
               </h2>
 
-              <p className="mx-auto mt-5 max-w-lg leading-8 text-stone-600">
+              <p className="mx-auto mt-5 max-w-lg leading-8 text-green-900">
                 Find something special for your little one. Explore our
                 collection and make everyday moments a little more lovely.
               </p>
@@ -205,7 +209,7 @@ export default function About() {
               <div className="mt-8 flex flex-wrap justify-center gap-4">
                 <Link
                   to="/products"
-                  className="inline-flex items-center gap-2 rounded-full bg-rose-400 px-7 py-3.5 text-sm font-medium text-white transition hover:bg-rose-500"
+                  className="inline-flex items-center gap-2 rounded-full bg-stone-300 px-7 py-3.5 text-sm font-medium text-green-900 transition hover:border hover:bg-rose-100"
                 >
                   Shop Our Products
                   <ArrowRight size={17} />
@@ -213,7 +217,7 @@ export default function About() {
 
                 <Link
                   to="/contact"
-                  className="rounded-full border border-stone-300 bg-white/70 px-7 py-3.5 text-sm font-medium transition hover:border-rose-300 hover:bg-white"
+                  className="rounded-full text-green-900 border border-stone-300 bg-white/70 px-7 py-3.5 text-sm font-medium transition hover:border-rose-300 hover:bg-white"
                 >
                   Get in Touch
                 </Link>

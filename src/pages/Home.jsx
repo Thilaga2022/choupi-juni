@@ -160,7 +160,7 @@ function Home() {
                 Our Collection
               </p>
 
-              <h2 className="mt-3 font-serif text-4xl sm:text-5xl">
+              <h2 className="font-heading mt-3 text-green-900 text-4xl sm:text-5xl">
                 Featured Products
               </h2>
 
@@ -184,7 +184,7 @@ function Home() {
             <div className="mt-10 text-center">
               <Link
                 to="/products"
-                className="inline-flex items-center gap-2 rounded-full border border-rose-200 px-7 py-3 text-sm font-semibold text-rose-500 transition hover:bg-[#FFF4EE]"
+                className="inline-flex items-center gap-2 rounded-full border border-rose-200 px-7 py-3 text-sm font-semibold text-green-900 transition hover:bg-[#FFF4EE]"
               >
                 Explore All Products
                 <ArrowRight size={17} />
@@ -210,19 +210,19 @@ function Home() {
               </p>
             </div>
 
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 text-green-900 lg:grid-cols-3">
               {claims.map((claim) => (
                 <article
                   key={claim.title}
                   className="rounded-3xl border border-rose-100/80 bg-white p-8 text-center shadow-[0_12px_40px_rgba(120,90,70,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-lg"
                 >
-                  <div className="mx-auto mb-5 h-1 w-12 rounded-full bg-amber-300" />
+                  <div className="mx-auto mb-5 h-0.5 w-12 rounded-full bg-amber-300" />
 
-                  <h3 className="font-serif text-2xl">
+                  <h3 className="font-heading text-2xl">
                     {claim.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-7 text-stone-600">
+                  <p className="mt-3 text-sm leading-7 ">
                     {claim.description}
                   </p>
                 </article>
@@ -255,7 +255,7 @@ function Home() {
 
               <Link
                 to="/about"
-                className="mt-8 inline-flex items-center gap-2 border-1 rounded-full bg-rose-100 px-7 py-3.5 text-sm font-semibold text-green-900 shadow-sm transition hover:-translate-y-1 hover:bg-rose-400 hover:shadow-md"
+                className="mt-8 inline-flex items-center gap-2 border rounded-full bg-rose-100 px-7 py-3.5 text-sm font-semibold text-green-900 shadow-sm transition hover:-translate-y-1 hover:bg-rose-400 hover:shadow-md"
               >
                 Know More About Us
                 <ArrowRight size={17} />
@@ -274,11 +274,11 @@ function Home() {
                 We're Here to Help
               </p>
 
-              <h2 className="mt-4 font-serif text-4xl leading-tight sm:text-5xl">
+              <h2 className="mt-4 font-heading text-green-900 text-4xl leading-tight sm:text-5xl">
                 Found Something Your Little One Will Love?
               </h2>
 
-              <p className="mx-auto mt-5 max-w-xl leading-8 text-stone-600">
+              <p className="mx-auto mt-5 max-w-xl leading-8 text-green-900">
                 Get in touch with us on WhatsApp to place your order
                 or ask any questions.
               </p>
@@ -289,7 +289,7 @@ function Home() {
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-rose-400 px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-1 hover:bg-rose-500 hover:shadow-md"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-stone-300 px-7 py-3.5 text-sm font-semibold text-green-900 shadow-sm transition hover:-translate-y-1 hover:bg-rose-100 hover:border hover:border-rose-300 hover:shadow-md"
               >
                 Order on WhatsApp
                 <ArrowRight size={17} />

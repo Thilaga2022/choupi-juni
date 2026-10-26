@@ -1,6 +1,7 @@
 
 import SEO from "../components/SEO";
 import { Link } from "react-router-dom";
+import {InstagramIcon} from "../components/ContactIcons"
 import {
   MessageCircle,
   Mail,
@@ -23,13 +24,13 @@ function Contact() {
       action: "info@choupijuni.com",
       href: "mailto:info@choupijuni.com",
     },
-    // {
-    //   // icon: Instagram,
-    //   // title: "Instagram",
-    //   // description: "Follow along for products, updates and inspiration.",
-    //   // action: "Visit our Instagram",
-    //   // href: "https://www.instagram.com/choupijuni/",
-    // },
+    {
+      icon: InstagramIcon,
+      title: "Instagram",
+      description: "Follow along for products, updates and inspiration.",
+      action: "Visit our Instagram",
+      href: "https://www.instagram.com/choupijuni/",
+    },
     {
       icon: FacebookIcon,
       title: "Facebook",
@@ -61,13 +62,13 @@ function Contact() {
               We'd Love to Hear From You
             </p>
 
-            <h1 className="mt-4 font-serif text-5xl leading-tight tracking-tight sm:text-6xl">
-              Let's <span className="italic text-rose-400">Talk</span>
+            <h1 className="mt-4 font-heading text-5xl leading-tight tracking-tight sm:text-6xl">
+              Let's <span className="font-heading text-rose-400">Talk</span>
             </h1>
 
             <div className="mx-auto my-6 h-px w-20 bg-amber-300" />
 
-            <p className="mx-auto max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">
+            <p className="mx-auto max-w-2xl text-base leading-8 text-green-900 sm:text-lg">
               Have a question about a product, need help with an
               order, or simply want to know more about{" "}
               <Link
@@ -89,7 +90,7 @@ function Contact() {
                 Get in Touch
               </p>
 
-              <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
+              <h2 className="mt-3 font-heading text-green-900 text-3xl sm:text-4xl">
                 We're Here for You
               </h2>
             </div>
@@ -107,11 +108,11 @@ function Contact() {
                       <Icon size={25} strokeWidth={1.5} />
                     </div>
 
-                    <h3 className="mt-6 font-serif text-2xl">
+                    <h3 className="mt-6 font-heading text-green-900 text-2xl">
                       {option.title}
                     </h3>
 
-                    <p className="mt-3 text-sm leading-7 text-stone-600">
+                    <p className="mt-3 text-sm leading-7 text-green-900">
                       {option.description}
                     </p>
 
@@ -145,13 +146,13 @@ function Contact() {
                 Find Us
               </p>
 
-              <h2 className="mt-3 font-serif text-4xl sm:text-5xl">
+              <h2 className="mt-3 font-heading text-green-900 text-4xl sm:text-5xl">
                 Visit ChoupiJuni
               </h2>
 
               <div className="mx-auto my-5 h-px w-16 bg-amber-300" />
 
-              <p className="mx-auto max-w-2xl leading-7 text-stone-600">
+              <p className="mx-auto max-w-2xl leading-7 text-green-900">
                 Find our location on the map or get directions
                 to reach us.
               </p>
@@ -164,11 +165,11 @@ function Contact() {
                   <MapPin size={26} strokeWidth={1.5} />
                 </div>
 
-                <h3 className="mt-6 font-serif text-3xl">
+                <h3 className="mt-6 font-heading text-green-900 text-3xl">
                   Our Address
                 </h3>
 
-                <p className="mt-4 text-sm leading-8 text-stone-600 sm:text-base">
+                <p className="mt-4 text-sm leading-8 text-green-900 sm:text-base">
                   Site Number 31, SF Number 276/1A,
                   <br />
                   Sri Krishna Ragavan Nagar,
@@ -184,7 +185,7 @@ function Contact() {
                   href={directionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-rose-400 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-rose-500"
+                  className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-stone-300 px-6 py-3 text-sm font-semibold text-green-900 shadow-sm transition hover:-translate-y-0.5 hover:bg-rose-100 hover:border hover:border-rose-300"
                 >
                   <Navigation size={17} />
                   Get Directions
@@ -219,11 +220,11 @@ function Contact() {
                 <MessageCircle size={29} strokeWidth={1.5} />
               </div>
 
-              <h2 className="mt-6 font-serif text-4xl sm:text-5xl">
+              <h2 className="mt-6 font-heading text-green-900 text-4xl sm:text-5xl">
                 Prefer WhatsApp?
               </h2>
 
-              <p className="mx-auto mt-5 max-w-xl leading-8 text-stone-600">
+              <p className="mx-auto mt-5 max-w-xl leading-8 text-green-900">
                 Send us a message directly. We're happy to help
                 with product questions, orders, and anything else
                 you need.
@@ -233,7 +234,7 @@ function Contact() {
                 href="https://wa.me/919597996585"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-rose-400 px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-1 hover:bg-rose-500 hover:shadow-md"
+                className="mt-8 inline-flex items-center gap-2 rounded-full bg-stone-300 px-7 py-3.5 text-sm font-semibold text-green-900 shadow-sm transition hover:-translate-y-1 hover:bg-rose-100 hover:border hover:border-rose-300 hover:shadow-md"
               >
                 <MessageCircle size={18} />
                 Chat on WhatsApp
@@ -250,11 +251,11 @@ function Contact() {
               A Little Help
             </p>
 
-            <h2 className="mt-3 font-serif text-4xl leading-tight sm:text-5xl">
+            <h2 className="mt-3 font-heading text-green-900 text-4xl leading-tight sm:text-5xl">
               Looking for Something Special?
             </h2>
 
-            <p className="mx-auto mt-5 max-w-2xl leading-8 text-stone-600">
+            <p className="mx-auto mt-5 max-w-2xl leading-8 text-green-900/60">
               Explore our collection of lovely finds for little ones.
               If you need help finding something, we're just a
               message away.
@@ -263,7 +264,7 @@ function Contact() {
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Link
                 to="/products"
-                className="inline-flex items-center gap-2 rounded-full bg-rose-400 px-7 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-1 hover:bg-rose-500"
+                className="inline-flex items-center gap-2 rounded-full bg-stone-300 px-7 py-3.5 text-sm font-semibold text-green-900 shadow-sm transition hover:-translate-y-1 hover:bg-rose-100 hover:border hover:border-rose-300"
               >
                 Browse Products
                 <ArrowRight size={17} />

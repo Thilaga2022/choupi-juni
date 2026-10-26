@@ -27,7 +27,7 @@ const AnnouncementBar = () => {
 
   return (
     <aside
-      className="w-full bg-[#AFA3A3] text-white"
+      className="w-full bg-[#AFA3A3] text-green-900"
       aria-label="Website announcements"
     >
       <div className="mx-auto flex min-h-10 items-center justify-center px-4 py-2 sm:min-h-11">

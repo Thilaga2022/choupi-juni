@@ -10,7 +10,7 @@ const quickLinks = [
 
 function Footer() {
   return (
-    <footer className="border-t border-rose-100 bg-[#FFFAF6] px-5 py-12 text-stone-700 sm:px-8 sm:py-16 lg:px-12">
+    <footer className="border-t border-rose-100 bg-[#FFFAF6] px-5 py-12  sm:px-8 sm:py-16 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 md:gap-12">
           {/* Brand */}
@@ -23,18 +23,18 @@ function Footer() {
                   behavior: "smooth",
                 })
               }
-              className="inline-block font-serif text-3xl tracking-wide text-stone-800 transition-colors hover:text-rose-500"
+              className="inline-block font-heading text-3xl tracking-wide text-stone-800 transition-colors hover:text-rose-500"
             >
               ChoupiJuni
             </Link>
 
             <div className="mt-3 h-px w-12 bg-amber-300" />
 
-            <p className="mt-3 text-xs font-medium uppercase tracking-[0.25em] text-rose-400">
+            <p className="mt-3 text-xs font-medium uppercase tracking-[0.25em]">
               Growing With You
             </p>
 
-            <p className="mt-4 max-w-xs text-sm leading-7 text-stone-500">
+            <p className="mt-4 max-w-xs text-sm leading-7 text-green-900">
               Little joys, made for little ones.
             </p>
           </div>
@@ -45,7 +45,7 @@ function Footer() {
               Explore
             </p>
 
-            <h3 className="mt-3 font-serif text-2xl text-stone-800">
+            <h3 className="mt-3 font-serif text-2xl text-green-900">
               Quick Links
             </h3>
 
@@ -54,7 +54,7 @@ function Footer() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className="group inline-flex items-center gap-1 text-sm text-stone-600 transition-colors hover:text-rose-500"
+                  className="group inline-flex items-center gap-1 text-sm text-green-900 transition-colors hover:text-rose-500"
                 >
                   {link.name}
                   <ArrowUpRight
@@ -72,11 +72,11 @@ function Footer() {
               We'd Love to Hear from You
             </p>
 
-            <h3 className="mt-3 font-serif text-2xl text-stone-800">
+            <h3 className="mt-3 font-serif text-2xl text-green-900">
               Get in Touch
             </h3>
 
-            <p className="mt-4 max-w-sm text-sm leading-7 text-stone-500">
+            <p className="mt-4 max-w-sm text-sm leading-7 text-green-900">
               Have a question or want to place an order? We're happy to help.
             </p>
 
@@ -84,7 +84,7 @@ function Footer() {
               href="https://wa.me/919597996585?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20products.%20Could%20you%20please%20help%20me%3F"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-rose-400 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose-500 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
+              className="mt-5 inline-flex items-center justify-center gap-2 rounded-full bg-stone-300 px-6 py-3 text-sm font-semibold text-green-900 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose-100 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
             >
               <MessageCircle size={17} />
               WhatsApp Us
@@ -96,7 +96,7 @@ function Footer() {
         {/* Bottom */}
         <div className="mt-12 border-t border-rose-100 pt-6 sm:mt-14">
           <div className="flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
-            <p className="text-xs leading-6 text-stone-500 sm:text-sm">
+            <p className="text-xs leading-6 text-rose-400 sm:text-sm">
               © {new Date().getFullYear()} ChoupiJuni. All rights reserved.
             </p>
 

@@ -20,14 +20,14 @@ function Products() {
               Explore Our Collection
             </p>
 
-            <h1 className="mt-4 font-serif text-4xl leading-tight sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 font-heading text-4xl text-green-900 leading-tight sm:text-5xl lg:text-6xl">
               Find Something{" "}
-              <span className="italic text-rose-400">They'll Love</span>
+              <span className="font-heading text-rose-400">They'll Love</span>
             </h1>
 
             <div className="mx-auto my-6 h-px w-20 bg-amber-300" />
 
-            <p className="mx-auto max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">
+            <p className="mx-auto max-w-2xl text-base leading-8 text-green-900 sm:text-lg">
               Browse our collection of fun and practical products
               designed especially for little ones.
             </p>
@@ -52,13 +52,13 @@ function Products() {
                     Our Collection
                   </p>
 
-                  <h2 className="mt-3 font-serif text-3xl sm:text-4xl lg:text-5xl">
+                  <h2 className="mt-3 font-heading text-green-900 text-3xl sm:text-4xl lg:text-5xl">
                     {category.name}
                   </h2>
 
                   <div className="mx-auto my-5 h-px w-16 bg-amber-300" />
 
-                  <p className="mx-auto max-w-2xl text-sm leading-7 text-stone-600 sm:text-base sm:leading-8">
+                  <p className="mx-auto max-w-2xl text-sm leading-7 text-green-900 sm:text-base sm:leading-8">
                     {category.description}
                   </p>
                 </div>

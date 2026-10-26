@@ -84,13 +84,13 @@ function ProductDetails() {
 
           <div className="mx-auto my-6 h-px w-16 bg-amber-300" />
 
-          <p className="leading-7 text-stone-600">
+          <p className="leading-7 text-green-900">
             Sorry, we couldn't find the product you're looking for.
           </p>
 
           <Link
             to="/products"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-rose-400 px-7 py-3 font-semibold text-white transition hover:bg-rose-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-rose-400 px-7 py-3 font-semibold text-green-900 transition hover:bg-rose-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2"
           >
             <ArrowLeft size={17} />
             Back to Products
@@ -117,7 +117,7 @@ function ProductDetails() {
         path={`/products/${productId}`}
       />
 
-      <main className="overflow-hidden bg-white text-stone-800">
+      <main className="overflow-hidden bg-white text-green-900">
         {/* Product Details */}
         <section className="bg-[#FFFAF6] px-5 py-10 sm:px-8 sm:py-16 lg:px-12">
           <div className="mx-auto max-w-6xl">
@@ -156,12 +156,12 @@ function ProductDetails() {
                     type="button"
                     onClick={() => changeStyle(-1)}
                     aria-label="Previous style"
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-rose-200 bg-white text-rose-500 transition hover:border-rose-400 hover:bg-[#FFF4EE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-rose-200 bg-white text-green-900 transition hover:border-rose-400 hover:bg-[#FFF4EE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
                   >
                     <ArrowLeft size={19} />
                   </button>
 
-                  <span className="min-w-16 text-center text-sm font-medium text-stone-500">
+                  <span className="min-w-16 text-center text-sm font-medium text-green-900">
                     {selectedStyleIndex + 1} / {product.styles.length}
                   </span>
 
@@ -169,13 +169,13 @@ function ProductDetails() {
                     type="button"
                     onClick={() => changeStyle(1)}
                     aria-label="Next style"
-                    className="flex h-11 w-11 items-center justify-center rounded-full border border-rose-200 bg-white text-rose-500 transition hover:border-rose-400 hover:bg-[#FFF4EE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-rose-200 bg-white text-green-900 transition hover:border-rose-400 hover:bg-[#FFF4EE] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
                   >
                     <ArrowRight size={19} />
                   </button>
                 </div>
 
-                <p className="mt-2 text-center text-xs text-stone-400">
+                <p className="mt-2 text-center text-xs text-green-800">
                   Explore the available styles
                 </p>
               </div>
@@ -186,7 +186,7 @@ function ProductDetails() {
                   {productCategory?.name}
                 </p>
 
-                <h1 className="mt-3 font-serif text-3xl leading-tight text-stone-800 sm:text-4xl lg:text-5xl">
+                <h1 className="mt-3 font-heading text-3xl leading-tight text-green-900 sm:text-4xl lg:text-5xl">
                   {product.name}
                 </h1>
 
@@ -195,7 +195,7 @@ function ProductDetails() {
                 {/* Selected Style */}
                 <p className="mt-4 text-sm text-stone-500">
                   Selected Style:{" "}
-                  <span className="font-semibold text-stone-800">
+                  <span className="font-semibold text-green-900">
                     {selectedStyle.name}
                   </span>
                 </p>
@@ -207,16 +207,16 @@ function ProductDetails() {
                       ₹{product.mrp}
                     </span>
 
-                    <span className="text-3xl font-semibold text-rose-500 sm:text-4xl">
+                    <span className="text-3xl font-semibold text-green-900 sm:text-4xl">
                       ₹{product.salePrice}
                     </span>
 
-                    <span className="rounded-full bg-[#FFF0D8] px-3 py-1.5 text-xs font-bold text-stone-700">
+                    <span className="rounded-full bg-[#FFF4EE] px-3 py-1.5 text-xs font-bold text-rose-500">
                       {discountPercentage}% OFF
                     </span>
                   </div>
 
-                  <p className="mt-3 text-sm text-stone-500">
+                  <p className="mt-3 text-sm text-green-900">
                     Special launch price
                   </p>
 
@@ -229,7 +229,7 @@ function ProductDetails() {
 
                 {/* Style Selection */}
                 <div className="mt-6">
-                  <p className="mb-3 text-sm font-semibold text-stone-800">
+                  <p className="mb-3 text-sm font-semibold text-green-900">
                     Choose a Style
                   </p>
 
@@ -279,7 +279,7 @@ function ProductDetails() {
 
                 {/* Feature Images */}
                 <div className="mt-5">
-                  <p className="mb-3 text-sm font-semibold text-stone-800">
+                  <p className="mb-3 text-sm font-semibold text-green-900">
                     Premium Features
                   </p>
 
@@ -323,7 +323,7 @@ Discount: ${discountPercentage}%`
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-rose-400 px-7 py-4 font-semibold text-white shadow-[0_8px_24px_rgba(244,114,182,0.2)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose-500 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2 sm:w-fit"
+                  className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-stone-300 px-7 py-2 font-semibold text-green-900  transition-all duration-300 hover:-translate-y-0.5 hover:bg-rose-100 hover:border hover:border-rose-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 focus-visible:ring-offset-2 sm:w-fit"
                 >
                   <MessageCircle size={19} />
                   Order on WhatsApp
@@ -344,7 +344,7 @@ Discount: ${discountPercentage}%`
               Made with Care
             </p>
 
-            <h2 className="mt-3 font-serif text-3xl sm:text-4xl">
+            <h2 className="mt-3 font-heading text-3xl sm:text-4xl">
               Key Attributes
             </h2>
 
@@ -397,7 +397,7 @@ Discount: ${discountPercentage}%`
                     src={item.image}
                     alt={item.title}
                     loading="lazy"
-                    className="mx-auto h-auto max-h-80 w-full rounded-2xl object-contain sm:h-64"
+                    className="mx-auto h-auto max-h-80 w-full rounded-5xl object-contain sm:h-64"
                   />
                 </div>
 
@@ -406,13 +406,13 @@ Discount: ${discountPercentage}%`
                     Feature {index + 1}
                   </p>
 
-                  <h3 className="mt-3 font-serif text-2xl leading-snug text-stone-800 sm:text-3xl">
+                  <h3 className="mt-3 font-heading text-2xl leading-snug text-green-900 sm:text-3xl">
                     {item.title}
                   </h3>
 
                   <div className="my-4 h-px w-12 bg-amber-300" />
 
-                  <p className="text-sm leading-7 text-stone-600 sm:text-base sm:leading-8">
+                  <p className="text-sm leading-7 text-green-900 sm:text-base sm:leading-8">
                     {item.description}
                   </p>
                 </div>
@@ -431,21 +431,21 @@ Discount: ${discountPercentage}%`
                   At a Glance
                 </p>
 
-                <h2 className="mt-3 font-serif text-2xl sm:text-3xl">
+                <h2 className="mt-3 font-heading text-2xl sm:text-3xl">
                   Product Details
                 </h2>
 
                 <div className="mt-6 space-y-4">
                   <div className="flex justify-between gap-6 border-b border-rose-100 pb-4">
                     <span className="text-sm text-stone-500">Category</span>
-                    <span className="text-right text-sm font-semibold text-stone-800">
+                    <span className="text-right text-sm font-semibold text-green-900">
                       {productCategory?.name}
                     </span>
                   </div>
 
                   <div className="flex justify-between gap-6 border-b border-rose-100 pb-4">
                     <span className="text-sm text-stone-500">Product</span>
-                    <span className="text-right text-sm font-semibold text-stone-800">
+                    <span className="text-right text-sm font-semibold text-green-900">
                       {product.name}
                     </span>
                   </div>
@@ -454,7 +454,7 @@ Discount: ${discountPercentage}%`
                     <span className="text-sm text-stone-500">
                       Selected Style
                     </span>
-                    <span className="text-right text-sm font-semibold text-stone-800">
+                    <span className="text-right text-sm font-semibold text-green-900">
                       {selectedStyle.name}
                     </span>
                   </div>
@@ -474,7 +474,7 @@ Discount: ${discountPercentage}%`
                   Shop with Confidence
                 </p>
 
-                <h2 className="mt-3 font-serif text-2xl sm:text-3xl">
+                <h2 className="mt-3 font-heading text-2xl sm:text-3xl">
                   Shipping & Returns
                 </h2>
 
