@@ -83,7 +83,7 @@ export default function About() {
 
               <div className="absolute -bottom-5 -left-3 z-20 max-w-230px rounded-2xl bg-[#fffaf3] p-5 shadow-lg sm:-left-8">
                 <Heart className="mb-2 text-rose-400" size={23} />
-                <p className="font-serif text-lg italic">
+                <p className="font-mila text-lg italic">
                   Little moments. Endless love.
                 </p>
               </div>

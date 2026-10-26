@@ -45,7 +45,7 @@ function Footer() {
               Explore
             </p>
 
-            <h3 className="mt-3 font-serif text-2xl text-green-900">
+            <h3 className="mt-3 font-heading text-2xl text-green-900">
               Quick Links
             </h3>
 
@@ -72,7 +72,7 @@ function Footer() {
               We'd Love to Hear from You
             </p>
 
-            <h3 className="mt-3 font-serif text-2xl text-green-900">
+            <h3 className="mt-3 font-heading text-2xl text-green-900">
               Get in Touch
             </h3>
 
@@ -97,16 +97,20 @@ function Footer() {
         <div className="mt-12 border-t border-rose-100 pt-6 sm:mt-14">
           <div className="flex flex-col items-center justify-between gap-3 text-center sm:flex-row sm:text-left">
             <p className="text-xs leading-6 text-rose-400 sm:text-sm">
-              © {new Date().getFullYear()} ChoupiJuni. All rights reserved.
-            </p>
+              © {new Date().getFullYear()} <Link to="/" onClick={() =>
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                })}> ChoupiJuni</Link>. All rights reserved.
+          </p>
 
-            <p className="text-xs font-medium tracking-wide text-rose-400 sm:text-sm">
-              Made with love for little ones
-            </p>
-          </div>
+          <p className="text-xs font-medium tracking-wide text-rose-400 sm:text-sm">
+            Made with love for little ones
+          </p>
         </div>
       </div>
-    </footer>
+    </div>
+    </footer >
   );
 }
 
