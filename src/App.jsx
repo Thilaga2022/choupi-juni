@@ -4,7 +4,7 @@ import ProductDetails from "./pages/ProductDetails";
 import About from "./pages/AboutUs"
 import Contact from "./pages/Contact"
 import Products from "./pages/Products"
-import Navbar from "./components/Navbar";
+import NavbarTest from "./components/NavbarTest";
 import Footer from "./components/Footer";
 import AnnouncementBar from "./components/AnouncementBar";
 
@@ -14,7 +14,7 @@ function App() {
   return (
     <BrowserRouter>
        <AnnouncementBar />
-      <Navbar />
+      <NavbarTest />
 
       <Routes>
 

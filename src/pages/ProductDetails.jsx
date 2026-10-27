@@ -505,6 +505,8 @@ Discount: ${discountPercentage}%`
             </div>
           </div>
         </section>
+
+        
       </main>
     </>
   );
