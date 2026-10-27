@@ -35,9 +35,9 @@ function Navbar() {
               }
               className=" text-5xl  tracking-widest font-heading text-[#060606]"
             >
-              ChoupiJuni                           
+              ChoupiJuni
             </Link>
-            
+
 
             <p className="absolute right-2 top-11 max-w-xs text-[15px] tracking-widest text-[#060606]">
               Growing With You
@@ -78,7 +78,10 @@ function Navbar() {
           <button
             type="button"
             onClick={() => setIsMenuOpen((open) => !open)}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-rose-100 bg-white text-green-900 transition hover:border-rose-300 hover:bg-[#FFF4EE] hover:text-rose-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400 lg:hidden"
+            className="relative z-60 flex h-11 w-11 shrink-0
+    touch-manipulation items-center justify-center
+    rounded-full border border-rose-100 bg-white
+    text-green-900 lg:hidden"
             aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-navigation"
@@ -94,7 +97,7 @@ function Navbar() {
               type="button"
               aria-label="Close navigation menu"
               onClick={closeMenu}
-              className="fixed inset-0 top-19 z-40 bg-stone-900/20 lg:hidden"
+              className="fixed inset-0 z-40 bg-stone-900/20 lg:hidden"
             />
 
             <div
