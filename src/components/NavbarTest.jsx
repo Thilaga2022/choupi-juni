@@ -82,7 +82,7 @@ function NavbarTest() {
 
                 {/* Mobile navigation */}
                 <div
-                    className={`fixed right-0 top-18.25 z-40 w-[85vw] max-w-[320px] md:hidden rounded-l-2xl border border-[#8e8484] bg-white p-3 shadow-lg transition-transform duration-500 ease-in-out ${isMenuOpen
+                    className={`fixed right-0 top-[72px] z-40 w-[85vw] max-w-[320px] md:hidden rounded-l-2xl border border-[#8e8484] bg-white p-3 shadow-lg transition-transform duration-500 ease-in-out ${isMenuOpen
                         ? "translate-x-0"
                         : "translate-x-full"
                         }`} >
