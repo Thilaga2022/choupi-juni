@@ -73,7 +73,10 @@ function NavbarTest() {
 
                     {/* Mobile menu button */}
                     <button
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setIsMenuOpen((prev) => !prev);
+                        }}
                         className="md:hidden transition text-[#8E8484]"
                         aria-label="Toggle navigation menu">
                         {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -86,7 +89,7 @@ function NavbarTest() {
                         ? "translate-x-0"
                         : "translate-x-full"
                         }`} >
-                            {navLinks.map((link) => (
+                    {navLinks.map((link) => (
                         <NavLink
                             key={link.path}
                             to={link.path}
@@ -112,8 +115,9 @@ function NavbarTest() {
                 </div>
 
 
- </div>
+            </div>
 
         </nav>
-)}
+    )
+}
 export default NavbarTest;
