@@ -1,123 +1,110 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-
 const navLinks = [
-    { name: "HOME", path: "/" },
-    { name: "PRODUCTS", path: "/products" },
-    { name: "ABOUT US", path: "/about" },
-    { name: "CONTACT", path: "/contact" },
+  { name: "Home", path: "/" },
+  { name: "Products", path: "/products" },
+  { name: "About", path: "/about" },
+  { name: "Contact", path: "/contact" },
 ];
 
-function NavbarTest() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    return (
-        <nav className="sticky top-0 z-50   bg-[#FFF9F0]/95 px-4 py-2 backdrop-blur-sm sm:px-6">
-            <div className="mx-auto max-w-7xl">
-                {/* Top navigation */}
-                <div className="flex items-center justify-between">
+  return (
+    <nav className="sticky top-0 z-50 border-b border-[#D9ECFA] bg-[#FFF9F0]/95 px-6 py-4 backdrop-blur-sm">
+      <div className="mx-auto max-w-7xl">
+        {/* Top navigation */}
+        <div className="flex items-center justify-between">
 
-                    {/* Brand */}
-                    <div className="relative w-20%">
-                        <Link
-                            to="/"
-                            onClick={() =>
-                                window.scrollTo({
-                                    top: 0,
-                                    behavior: "smooth",
-                                })
-                            }
+          {/* Brand */}
+          <Link
+            to="/"
+            onClick={() =>
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              })
+            }
+            className="text-2xl font-bold tracking-tight text-[#2878B8] transition hover:text-[#6CB4EE]"
+          >
+            ChoupiJuni
+            <span className="ml-1 inline-block h-2 w-2 rounded-full bg-[#FFD95A]" />
+          </Link>
 
-                        >
+          {/* Desktop navigation */}
+          <div className="hidden items-center gap-8 md:flex">
 
-                            <h1
-                                className="font-heading text-6xl text-[#060606] transition hover:text-[#afa3a3]">
-                                ChoupiJuni</h1>
-                            <p
-                                className="font-mali absolute left-36  top-14 text-sm text-[#060606] tracking-widest transition hover:text-[#afa3a3]">
-                                Growing With You</p>
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-sm font-semibold text-[#2878B8]"
+                    : "text-sm font-medium text-[#293241] transition hover:text-[#6CB4EE]"
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
 
+            <a
+              href="https://wa.me/YOUR_PHONE_NUMBER"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full bg-green-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-green-600 hover:shadow-md"
+            >
+              Order on WhatsApp
+            </a>
 
+          </div>
 
-                        </Link>
-                    </div>
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden"
+            aria-label="Toggle navigation menu"
+          >
+            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
 
-                    {/* Desktop navigation */}
-                    <div className="hidden items-center gap-8 md:flex">
+        </div>
 
-                        {navLinks.map((link) => (
-                            <NavLink
-                                key={link.path}
-                                to={link.path}
-                                className={({ isActive }) =>
-                                    isActive
-                                        ? "text-sm font-semibold text-[#676363]"
-                                        : "rounded-md border border-dotted border-transparent px-2 py-1 text-sm font-medium text-[#a09b9b] transition-colors duration-600 ease-in-out hover:border-[#9b8d8d] hover:border-rounded-lg"
-                                }
-                            >
-                                {link.name}
-                            </NavLink>
-                        ))}
+        {/* Mobile navigation */}
+        {isMenuOpen && (
+          <div className="mt-4 rounded-2xl border border-[#D9ECFA] bg-white p-3 shadow-sm md:hidden">
 
-                        <a
-                            href={`https://wa.me/919597996585?text=${encodeURIComponent("Hi! I’d like to place an order. Could you please help me with the ordering process?"
-                            )}`}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="rounded-full px-5 py-2.5 text-sm font-semibold text-green-900 bg-stone-300 shadow-sm transition-[background-color,color,box-shadow,translate] duration-800 ease-in-out hover:-translate-y-0.5 hover:bg-rose-100 hover:border hover:border-rose-300 hover:shadow-md">
-                            Order on WhatsApp
-                        </a>
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                onClick={() => setIsMenuOpen(false)}
+                className={({ isActive }) =>
+                  isActive
+                    ? "block rounded-xl bg-[#EAF5FF] px-4 py-3 font-semibold text-[#2878B8]"
+                    : "block rounded-xl px-4 py-3 font-medium text-[#293241] transition hover:bg-[#EAF5FF] hover:text-[#2878B8]"
+                }
+              >
+                {link.name}
+              </NavLink>
+            ))}
 
-                    </div>
+            <a
+              href="https://wa.me/YOUR_PHONE_NUMBER"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 block rounded-xl bg-green-500 px-4 py-3 text-center font-semibold text-white transition hover:bg-green-600"
+            >
+              Order on WhatsApp
+            </a>
 
-                    {/* Mobile menu button */}
-                    <button
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            setIsMenuOpen((prev) => !prev);
-                        }}
-                        className="md:hidden transition text-[#8E8484]"
-                        aria-label="Toggle navigation menu">
-                        {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                    </button>
-                </div>
+          </div>
+        )}
+      </div>
 
-                {/* Mobile navigation */}
-                <div
-                    className={`fixed right-0 top-[72px] z-40 w-[85vw] max-w-[320px] md:hidden rounded-l-2xl border border-[#8e8484] bg-white p-3 shadow-lg transition-transform duration-500 ease-in-out ${isMenuOpen
-                        ? "translate-x-0"
-                        : "translate-x-full"
-                        }`} >
-                    {navLinks.map((link) => (
-                        <NavLink
-                            key={link.path}
-                            to={link.path}
-                            onClick={() => setIsMenuOpen(false)}
-                            className={({ isActive }) =>
-                                isActive
-                                    ? "block rounded-xl bg-rose-100 px-4 py-3 font-semibold text-[#676363]"
-                                    : "block rounded-xl px-4 py-3 font-medium text-[#a09b9b] transition hover:bg-[#EAF5FF] hover:text-[#2878B8]"
-                            }
-                        >
-                            {link.name}
-                        </NavLink>
-                    ))}
-
-                    <a
-                        href={`https://wa.me/919597996585?text=${encodeURIComponent("Hi! I’d like to place an order. Could you please help me with the ordering process?")}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-2 block rounded-xl bg-stone-300 px-4 py-3 text-center font-semibold text-green-900 shadow-sm"
-                    >
-                        Order on WhatsApp
-                    </a>
-                </div>
-
-
-            </div>
-
-        </nav>
-    )
+    </nav>
+  );
 }
-export default NavbarTest;
+
+export default Navbar;
