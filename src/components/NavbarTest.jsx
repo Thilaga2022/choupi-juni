@@ -31,7 +31,7 @@ function Navbar() {
           >
             ChoupiJuni
           </Link>
-          <p className="absolute left-33 top-11 max-w-xs text-[16px] tracking-wide text-[#060606]">
+          <p className="absolute left-33 top-11 max-w-xs text-[15px] tracking-wide text-[#060606]">
               Growing With You
             </p>
             
