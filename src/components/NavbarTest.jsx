@@ -15,10 +15,10 @@ function Navbar() {
     <nav className="sticky top-0 z-50 border-b border-rose-50 bg-[#FFF9F0]/95 px-6 py-4 backdrop-blur-sm">
       <div className="mx-auto max-w-7xl">
         {/* Top navigation */}
-        <div className="flex items-center justify-between">
+        <div className="relative flex items-center justify-between">
 
           {/* Brand */}
-          <div className="relative">
+          
           <Link
             to="/"
             onClick={() =>
@@ -34,7 +34,7 @@ function Navbar() {
           <p className="absolute left-33 top-11 max-w-xs text-[16px] tracking-wide text-[#060606]">
               Growing With You
             </p>
-            </div>
+            
 
           {/* Desktop navigation */}
           <div className="hidden items-center gap-8 md:flex">
