@@ -120,7 +120,7 @@ export default function About() {
               <div className="my-5 h-px w-16 bg-amber-300" />
 
               <p className="leading-8 ">
-                The Heart Behind ChoupiJuni
+                The Heart Behind ChoupiJuni - Founded with Love by <a href="https://www.instagram.com/anoop.ample?dlrf=MWM1aWJqNnU0cDR0bQ%3D%3D" className="text-rose-400" target="_blank">Anoop Jose</a> & <a href="https://www.instagram.com/anukrish1212?cplk=M2NoNnN1ZHgxY2d2&utm_source=qr" className="text-rose-400" target="_blank">Krishnaveni Anoop </a>
                 Born from Experience. Inspired by Love. Created for Little Smiles.
                 Our journey began in the logistics industry, where we built our experience in connecting products, people, and markets across the world. Over time, we expanded into global product sourcing, discovering unique products from different countries and exploring new possibilities to bring something special to India.
               </p>

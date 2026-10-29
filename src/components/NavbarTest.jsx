@@ -12,12 +12,13 @@ function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-[#D9ECFA] bg-[#FFF9F0]/95 px-6 py-4 backdrop-blur-sm">
+    <nav className="sticky top-0 z-50 border-b border-rose-50 bg-[#FFF9F0]/95 px-6 py-4 backdrop-blur-sm">
       <div className="mx-auto max-w-7xl">
         {/* Top navigation */}
         <div className="flex items-center justify-between">
 
           {/* Brand */}
+          <div className="relative">
           <Link
             to="/"
             onClick={() =>
@@ -26,11 +27,14 @@ function Navbar() {
                 behavior: "smooth",
               })
             }
-            className="text-2xl font-bold tracking-tight text-[#2878B8] transition hover:text-[#6CB4EE]"
+            className="text-5xl tracking-widest font-heading text-[#060606] transition hover:text-[#6CB4EE]"
           >
             ChoupiJuni
-            <span className="ml-1 inline-block h-2 w-2 rounded-full bg-[#FFD95A]" />
           </Link>
+          <p className="absolute left-33 top-11 max-w-xs text-[15px] tracking-widest text-[#060606]">
+              Growing With You
+            </p>
+            </div>
 
           {/* Desktop navigation */}
           <div className="hidden items-center gap-8 md:flex">
@@ -40,9 +44,10 @@ function Navbar() {
                 key={link.path}
                 to={link.path}
                 className={({ isActive }) =>
-                  isActive
-                    ? "text-sm font-semibold text-[#2878B8]"
-                    : "text-sm font-medium text-[#293241] transition hover:text-[#6CB4EE]"
+                  `relative py-2 text-sm font-semibold tracking-[0.12em] transition-colors duration-200 xl:text-sm ${isActive
+                    ? "text-green-900 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:rounded-full after:bg-rose-100"
+                    : "text-stone-500 hover:text-stone-400"
+                  }`
                 }
               >
                 {link.name}
@@ -50,10 +55,10 @@ function Navbar() {
             ))}
 
             <a
-              href="https://wa.me/YOUR_PHONE_NUMBER"
+              href="https://wa.me/919597996585?text=Hi! I would like to place an order. Could you help me with the ordering process"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-green-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-green-600 hover:shadow-md"
+              className="rounded-full bg-stone-300 px-5 py-2.5 text-sm font-semibold text-green-900 shadow-sm transition hover:-translate-y-0.5 hover:bg-rose-100 hover:border hover:border-rose-300 hover:shadow-md"
             >
               Order on WhatsApp
             </a>
@@ -73,7 +78,7 @@ function Navbar() {
 
         {/* Mobile navigation */}
         {isMenuOpen && (
-          <div className="mt-4 rounded-2xl border border-[#D9ECFA] bg-white p-3 shadow-sm md:hidden">
+          <div className="mt-4 rounded-2xl border border-rose-300 bg-white p-3 shadow-sm md:hidden">
 
             {navLinks.map((link) => (
               <NavLink
@@ -82,8 +87,8 @@ function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
                 className={({ isActive }) =>
                   isActive
-                    ? "block rounded-xl bg-[#EAF5FF] px-4 py-3 font-semibold text-[#2878B8]"
-                    : "block rounded-xl px-4 py-3 font-medium text-[#293241] transition hover:bg-[#EAF5FF] hover:text-[#2878B8]"
+                    ? "block rounded-xl bg-rose-100 px-4 py-3 font-semibold text-green-900"
+                    : "block rounded-xl px-4 py-3 font-medium text-stone-500 transition hover:bg-pink-100 hover:text-[#2878B8]"
                 }
               >
                 {link.name}
@@ -91,10 +96,10 @@ function Navbar() {
             ))}
 
             <a
-              href="https://wa.me/YOUR_PHONE_NUMBER"
+              href="https://wa.me/919597996585?text=Hi! I would like to place an order. Could you help me with the ordering process"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 block rounded-xl bg-green-500 px-4 py-3 text-center font-semibold text-white transition hover:bg-green-600"
+              className="mt-2 block rounded-xl bg-stone-300 px-4 py-3 text-center font-semibold text-green-900 transition"
             >
               Order on WhatsApp
             </a>

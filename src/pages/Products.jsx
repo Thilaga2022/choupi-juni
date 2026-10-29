@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 import SEO from "../components/SEO";
 import categories from "../data/categories";
 import ProductCard from "../components/ProductCard";
@@ -7,23 +7,39 @@ import ProductCard from "../components/ProductCard";
 const reviews = [
   {
     id: 1,
-    name: "Happy Parent",
-    text: "A lovely shopping experience with thoughtful products for little ones. The attention to detail makes the collection feel extra special.",
+    name: "Thilaga Pannerselvam",
+    rating: 5,
+    text: "Loved shopping at ChoupiJuni for my little one! She absolutely loves her elephant bottle and takes it everywhere with her. It's become her little favourite! ❤️"
   },
   {
     id: 2,
-    name: "ChoupiJuni Customer",
-    text: "Beautifully presented products and a wonderful gifting option for babies. The collection feels carefully chosen for little ones.",
+    name: "Vivekanandham",
+    rating: 5,
+    text: "The products are so cute and beautifully packed! I think they’re perfect for gifting little ones. Loved how thoughtfully everything is picked.",
   },
   {
     id: 3,
-    name: "Happy Family",
-    text: "We loved exploring the collection. The products have such a sweet, thoughtful feel, making them lovely choices for little ones.",
+    name: "NithyaShree",
+    rating: 4,
+    text: "So many cute things in one place! Had a lovely time checking out the collection. Definitely found a few things I'd love to get for my little one."
   },
   {
     id: 4,
-    name: "Returning Customer",
-    text: "A delightful collection with a lovely presentation. Looking forward to discovering more from ChoupiJuni!",
+    name: "Antony D",
+    rating: 4.5,
+    text: "Was looking for something nice to gift a baby, and ChoupiJuni caught my eye. The products look lovely and would make such a sweet gift."
+  },
+  {
+    id: 5,
+    name: "Gokila",
+    rating: 4.8,
+    text: "I love how cute the products are! It's not always easy to find baby gifts that feel a little different, so this collection was a nice find."
+  },
+  {
+    id: 6,
+    name: "Venugopal",
+    rating: 5,
+    text: "Found some really nice options for little ones here. The collection is lovely, especially if you're looking for a gift for a baby or toddler."
   },
 ];
 
@@ -73,11 +89,10 @@ function Products() {
             {categories.map((category, index) => (
               <section
                 key={category.id}
-                className={`mb-20 last:mb-0 ${
-                  index > 0
-                    ? "border-t border-rose-100 pt-16 sm:pt-20"
-                    : ""
-                }`}
+                className={`mb-20 last:mb-0 ${index > 0
+                  ? "border-t border-rose-100 pt-16 sm:pt-20"
+                  : ""
+                  }`}
               >
                 {/* Category Heading */}
                 <div className="text-center">
@@ -136,7 +151,7 @@ function Products() {
             <div
               className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-7"
               aria-live="polite"
-              aria-label={`Customer reviews, slide ${reviewPage + 1} of 2`}
+              aria-label={`Customer reviews, slide ${reviewPage + 1} of 3`}
             >
               {visibleReviews.map((review) => (
                 <article
@@ -144,13 +159,14 @@ function Products() {
                   className="flex h-full flex-col rounded-2xl border border-rose-100 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md sm:p-8"
                 >
                   {/* Star Rating */}
+                  {/* Star Rating */}
                   <div
                     className="flex gap-1 text-amber-400"
-                    aria-label="5 out of 5 stars"
+                    aria-label={`${review.rating} out of 5 stars`}
                   >
                     {[1, 2, 3, 4, 5].map((star) => (
                       <span key={star} aria-hidden="true">
-                        ★
+                        {star <= review.rating ? "★" : "☆"}
                       </span>
                     ))}
                   </div>
@@ -190,7 +206,7 @@ function Products() {
             <div className="mt-8 flex items-center justify-center gap-5">
               <button
                 type="button"
-                onClick={() => setReviewPage(0)}
+                onClick={() => setReviewPage(Math.max(reviewPage - 1, 0))}
                 disabled={reviewPage === 0}
                 aria-label="Previous reviews"
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-rose-200 bg-white text-green-900 transition hover:border-rose-400 hover:bg-[#FFF0E9] disabled:cursor-not-allowed disabled:opacity-40"
@@ -202,26 +218,25 @@ function Products() {
                 className="flex items-center gap-2"
                 aria-label={`Slide ${reviewPage + 1} of 2`}
               >
-                {[0, 1].map((page) => (
+                {[0, 1, 2].map((page) => (
                   <button
                     key={page}
                     type="button"
                     onClick={() => setReviewPage(page)}
                     aria-label={`Show review slide ${page + 1}`}
                     aria-current={reviewPage === page ? "true" : undefined}
-                    className={`h-2.5 rounded-full transition-all duration-300 ${
-                      reviewPage === page
-                        ? "w-8 bg-green-900"
-                        : "w-2.5 bg-rose-200 hover:bg-rose-400"
-                    }`}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${reviewPage === page
+                      ? "w-8 bg-green-900"
+                      : "w-2.5 bg-rose-200 hover:bg-rose-400"
+                      }`}
                   />
                 ))}
               </div>
 
               <button
                 type="button"
-                onClick={() => setReviewPage(1)}
-                disabled={reviewPage === 1}
+                onClick={() => setReviewPage(Math.min(reviewPage + 1, 2))}
+                disabled={reviewPage === 2}
                 aria-label="Next reviews"
                 className="flex h-11 w-11 items-center justify-center rounded-full border border-rose-200 bg-white text-green-900 transition hover:border-rose-400 hover:bg-[#FFF0E9] disabled:cursor-not-allowed disabled:opacity-40"
               >
@@ -230,7 +245,7 @@ function Products() {
             </div>
 
             <p className="mt-4 text-center text-xs tracking-wide text-stone-400">
-              {reviewPage + 1} / 2
+              {reviewPage + 1} / 3
             </p>
           </div>
         </section>
